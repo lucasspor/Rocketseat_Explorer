@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root,
+body,
+input {
+  font-size: 62.5%;
+  font-family: "Mulish", sans-serif;
+
+  --color-title: #202024;
+  --color-text: #121214;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+#app{
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  height: 100vh;
+}
+
+.container {
+  width: min(112rem, 100%);
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  background: #065E7C;
+  align-items: center;
+  padding: 1.2rem 2.8rem;
+  gap: 2.6rem;
+}
+
+header form {
+  flex: 1;
+}
+
+header label {
+  height: 1px;
+  width: 1px;
+
+  overflow: hidden;
+  position: absolute;
+}
+
+header form input::placeholder {
+ color: #FFFFFF;
+}
+header form input{
+  background: #387E96;
+  border: none;
+  border-radius: 8px;
+
+  color: #FFFFFF;
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  width: 100%;
+
+
+  padding: 1.2rem 1.4rem;
+
+}
+
+header .user {
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+}
+
+main{
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 43rem;
+  gap: 3.9rem;
+  margin: 0 auto;
+}
+main h1, h2{
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: var(--color-title);
+}
+
+main figure img{
+  width: 100%;
+}
+
+.title{
+  margin: 31px 22px 26px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+#voting{
+  display: flex;
+  gap: 1.2rem;
+}
+
+#voting span{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: #065E7C;
+  border-radius: 50%;
+}
+
+#voting span:hover{
+  cursor: pointer;
+  background: #033a4d;
+}
+
+#voting img{
+  width: 14px;
+  height: 14px;
+
+  outline: 12px;
+}
+
+.description p {
+  padding-left: 1.4rem ;
+  padding-right: 6.6rem;
+}
+
+article{
+  display: flex;
+  flex-direction: column;
+  padding: 0 2.6rem 3.4rem;
+  gap: 3.2rem;
+}
+
+.wrapper{
+  display: flex;
+  align-items: center;
+  gap: 1.6rem ;
+}
+
+.wrapper img{
+  width: 15.1rem;
+  height: 8.4rem;
+  border-radius: 5px;
+}
+
+.wrapper h3{
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 160%;
+  margin-bottom: 1rem;
+}
+
+.wrapper p{
+  font-size: 1.4rem;
+}
+
+
+footer{
+  background: #065E7C;
+  padding: 2.6rem 2.4rem;
+  text-align: center;
+}
+
+footer p{
+  font-size: 1.6rem;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+@media (min-width: 1000px) {
+  
+  main{
+    display: grid;
+    gap:3.4rem ;
+    place-content: center;
+    padding: 4.4rem 3.2rem 5.6rem;
+    max-width: min(14.40rem, 100%);
+    grid-template-columns: 81.4rem 38.4rem;
+  }
+
+  .title{
+    display: flex;
+    justify-content: space-between;
+    margin: 3.1rem .3rem 0;
+  }
+
+  .description p {
+    margin-top: 1.6rem;
+    padding: 0 .3rem 0;
+  }
+}

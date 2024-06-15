@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peogramando com JS</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grip;
+      padding: 0px 20px 0;
+      place-content: center;
+    }
+
+    #app{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      place-content: center;
+      gap: 20px;
+    }
+
+    .js-functions {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.1rem;
+      text-align: center;
+      font-weight: bold;
+      color:white;
+      
+      background-color: #121214;
+      padding: 20px;
+      border-radius: 50px;
+
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="js-functions" onclick="name()">DIGA-ME SEU NOME</div>
+    <div class="js-functions" onclick="sum()">Some os numeros</div>
+    <div class="js-functions" onclick="math()">faça todos os calculos</div>
+    <div class="js-functions" onclick="average()">Calcule sua média</div>
+    <div class="js-functions" onclick="items()">Veja sua sacola</div>
+    <div class="js-functions" onclick="random()">jogo de advinhação</div>
+    <div class="js-functions" onclick="list()">Lista</div>
+    <div class="js-functions" onclick="listSwitch()">Lista-switch</div>
+    <div class="js-functions" onclick="patients()">Pacientes</div>
+    <div class="js-functions" onclick="imcCalc()">IMC</div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
