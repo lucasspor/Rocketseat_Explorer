@@ -35,13 +35,8 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 82.1rem;
-  padding: 4rem 4.5rem;
+  max-width: 82.1rem;
   gap: 19.2rem;
-}
-
-#timer{
-  max-width: 39rem;
 }
 
 .time{
@@ -73,7 +68,6 @@ main{
   place-content: center;
   grid-template-columns: repeat(2, 1fr);
   gap: 3.2rem;
-  max-width: 30.8rem;
 }
 
 .sound-button{
@@ -84,9 +78,8 @@ main{
 
 @media (max-width: 768px) {
   main{
-    width: 100%;
     flex-direction: column;
     gap: 4rem;
-    padding: 2rem;
+    padding: 4rem 2rem;
   }
 }
