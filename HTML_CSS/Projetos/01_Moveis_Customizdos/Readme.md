@@ -5,7 +5,7 @@
 </p>
 
 <p>projeto feito com o Curso de Explorer da Rockeatseat, usando o conhecimento basico em HTML e CSS para desenvolver novas aplicações.</p>
-<a href="https://lucasspor.github.io/projeto-01/" target="_blank">Github Pages</a>
+<a href="https://lucasspor.github.io/Rocketseat_Explore/HTML_CSS/Projetos/01_Moveis_Customizdos" target="_blank">Github Pages</a>
 
 ## 🚀 Tecnologias 
 
