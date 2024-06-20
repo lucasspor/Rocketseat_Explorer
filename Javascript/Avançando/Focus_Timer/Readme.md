@@ -4,7 +4,7 @@
 
 <p align="center"><a href="https://lucasspor.github.io/Rocketseat_Explorer/Javascript/Avançando/Focus_Timer" target="_blank" >Github pages</a></p>
 
-<img src="./.github/preview.mp4" alt="Focus Timer"/>
+https://github.com/lucasspor/Rocketseat_Explorer/assets/150375997/c2b9d15c-b935-46bd-ad3e-46befd07abde
 
 ## 🚀 Tecnologias
 

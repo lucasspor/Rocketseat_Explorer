@@ -4,7 +4,7 @@
 
 <p align="center"><a href="https://lucasspor.github.io/Rocketseat_Explorer/Javascript/Avançando/Biscoito-da-sorte" target="_blank" >Github pages</a></p>
 
-<img src="./.github/preview.mp4" alt="Biscoito da sorte"/>
+https://github.com/lucasspor/Rocketseat_Explorer/assets/150375997/1d560768-da7e-4570-8ca2-d763b61453d6
 
 ## 🚀 Tecnologias
 
