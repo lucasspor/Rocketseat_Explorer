@@ -4,7 +4,7 @@
 
 <p align="center"><a href="https://lucasspor.github.io/Rocketseat_Explorer/Javascript/Avançando/Advinhacao" target="_blank" >Github pages</a></p>
 
-<img src="./.github/preview.mp4" alt="Jogo de advinhação"/>
+https://github.com/lucasspor/Rocketseat_Explorer/assets/150375997/bb54ef52-8573-4a69-87e2-6ff5d9572de0
 
 ## 🚀 Tecnologias
 
