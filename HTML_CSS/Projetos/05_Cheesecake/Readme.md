@@ -5,7 +5,7 @@
 
 <img src="./.github/preview.png" alt="pagina de receita de um cheesecake"/>
 
-<p align="center"><a href="https://lucasspor.github.io/projeto-05/" target="_blank">Github Pages</a></p>
+<p align="center"><a href="https://lucasspor.github.io/Rocketseat_Explorer/HTML_CSS/Projetos/05_Cheesecake" target="_blank">Github Pages</a></p>
 
 ## 🚀 Tecnologias
 

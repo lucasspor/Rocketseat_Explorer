@@ -4,7 +4,7 @@
 
 <img src="./.github/preview.png" alt="um computador e um celular contendo uma pagina web"/>
 
-<p align="center"><a href="https://lucasspor.github.io/projeto-04/" target="_blank">Github Pages</a></p>
+<p align="center"><a href="https://lucasspor.github.io/Rocketseat_Explorer/HTML_CSS/Projetos/04_Responsividade" target="_blank">Github Pages</a></p>
 
 ## 🚀 Tecnologias
 
