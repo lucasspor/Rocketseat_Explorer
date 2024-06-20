@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+  <!--Preconnect-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-------------------->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS-->
+  <link rel="stylesheet" href="style.css">
+  <!-- Module javascript -->
+  <script type="module" src="./src/main.js" defer></script> 
+  <!--Phosphor icons-->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!--Font-->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <title>Focus Timer v2</title>
+</head>
+<body>
+  <div id="app">
+    <main>
+      <section id="timer">
+        <div class="time"><span id="minutes">25</span> : <span id="seconds">00</span></div>
+        <div class="timer-buttons">
+          <button class="ph ph-play-circle"></button>
+          <button class="ph ph-stop-circle"></button>
+          <button class="ph ph-plus-circle"></button>
+          <button class="ph ph-minus-circle"></button>
+        </div>
+      </section>
+      <section id="sounds">
+        <button class="sound-button"><img src="./assets/tree.svg" /> </button>
+        <button class="sound-button"><img src="./assets/rain.svg" alt="Raining sounds"/></button>
+        <button class="sound-button"><img src="./assets/market.svg" alt="Market sounds"/></button>
+        <button class="sound-button"><img src="./assets/fire.svg" alt="nature sounds"/></button>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

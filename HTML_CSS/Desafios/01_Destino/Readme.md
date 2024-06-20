@@ -4,7 +4,7 @@
 
 <p align="center"><img src="./.github/previews.png"/></p>
 
-<a href="https://lucasspor.github.io/desafio-rocketseat-01/" target="_balnk">Github Pages</a>
+<a href="https://lucasspor.github.io/Rocketseat_Explorer/HTML_CSS/Desafios/01_Destino" target="_balnk">Github Pages</a>
 
 ## 🚀 Tecnologias 
 

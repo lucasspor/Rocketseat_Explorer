@@ -1,0 +1,92 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  font-size: clamp(62.5%, 1vw + 1%, 40%);
+  font-family: "Roboto", sans-serif;
+}
+
+body,input, button{
+  font-size: 1.6rem;
+}
+
+button{
+  border:none;
+  cursor: pointer;
+}
+
+.checked {
+  background: #02799D !important;
+}
+
+.checked img{
+  filter: invert(92%) sepia(94%) saturate(1%) hue-rotate(214deg) brightness(105%) contrast(100%);
+}
+#app{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 82.1rem;
+  padding: 4rem 4.5rem;
+  gap: 19.2rem;
+}
+
+#timer{
+  max-width: 39rem;
+}
+
+.time{
+  font-size: 12.6rem;
+  color: #323238;
+  font-weight: 600;
+  display: flex;
+}
+
+.timer-buttons{
+  display: flex;
+  align-items: center;
+  gap: 4.3rem;
+  margin: 2rem 0 0;
+}
+
+.timer-buttons button{
+  display: grid;
+  place-content: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  background: none;
+  color: #323238;
+  font-size: 4.8rem;
+}
+
+#sounds{
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.2rem;
+  max-width: 30.8rem;
+}
+
+.sound-button{
+  padding:4.8rem 4.7rem;
+  background: #E1E1E6;
+  border-radius: 2.4rem;
+}
+
+@media (max-width: 768px) {
+  main{
+    width: 100%;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 2rem;
+  }
+}
