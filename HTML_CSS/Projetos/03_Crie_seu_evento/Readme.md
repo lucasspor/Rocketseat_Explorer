@@ -2,7 +2,7 @@
 
 <p align="center">Projeto de agendamento de evento com o uso de forms</p>
 
-<p align="center"><a href="https://lucasspor.github.io/projeto-03/">Github Pages</a></p>
+<p align="center"><a href=/Rocketseat_Explorer/HTML_CSS/Projetos/03_Crie_seu_evento/">Github Pages</a></p>
 
 <p align="center"><img src="./.github/preview.png" alt="preview image"/></p>
 
