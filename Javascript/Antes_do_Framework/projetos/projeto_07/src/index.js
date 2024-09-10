@@ -1,15 +1,11 @@
-const router = {
-  "/": "/pages/home.html",
-  "/about": "/pages/about.html",
-  "/contact": "/pages/contact.html",
-  404: "/pages/404.html"
-}
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', route)
-});
+import { Router } from './router.js'
 
-window.onpopstate = () => handle()
-window.route = () => route()
-handle()
+const router = new Router()
 
 
+router.Add('/', 'pages/home.html')
+router.Add('/about', 'pages/about.html')
+router.Add('/contact', 'pages/contact.html')
+router.Add(404, 'pages/404.html')
+
+router.handle()

@@ -1,4 +1,18 @@
-class router {
+export class Router {
+  constructor() {
+    this.routes = {}
+    
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', this.route.bind(this))
+    })
+    
+    window.onpopstate = () => this.handle()
+  }
+
+  Add(routeName, link) {
+    this.routes[routeName] = link
+  }
+
   route(event) {
     event = event || window.event
     event.preventDefault()
@@ -10,12 +24,10 @@ class router {
 
   handle() {
     const { pathname } = window.location
-    const route = router[pathname] || router[404]
+    const route = this.routes[pathname] || this.routes[404]
 
     fetch(route).then(data => data.text().then(html => {
       document.querySelector('#app').innerHTML = html
     }))
   }
 }
-
-const router = new Router()
