@@ -13,6 +13,7 @@
   background-position: bottom / center;
   height: 100vh;
 }
+
 header{
   display: flex;
   align-items: center;
@@ -63,6 +64,16 @@ h1{
   font-size: 14px;
   color: #fff;
   border-radius: 5px;
+
+  cursor: pointer;
+}
+
+#home button:hover{
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+
+  transition: background 1s ease;
 }
 
 #exploration p, #universe p{
