@@ -4,8 +4,7 @@ export class Router {
     
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', this.route.bind(this))
-    })
-    
+    })    
   }
 
   Add(routeName, link) {
