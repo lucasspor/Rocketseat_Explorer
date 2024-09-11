@@ -6,7 +6,6 @@ export class Router {
       link.addEventListener('click', this.route.bind(this))
     })
     
-    window.onpopstate = () => this.handle()
   }
 
   Add(routeName, link) {
