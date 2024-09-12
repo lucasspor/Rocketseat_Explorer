@@ -143,4 +143,6 @@ td.user a p{
 td .remove{
   all: unset;
   color: red;
+
+  cursor: pointer;
 } 

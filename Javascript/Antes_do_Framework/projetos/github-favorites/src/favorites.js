@@ -8,7 +8,7 @@ export class Favorites {
   load() {
     this.entries = [{
       login: 'lucasspor',
-      name: "Lucas Silva Port",
+      name: "Lucas Silva Porto",
       public_repos: '8',
       followers: '1'
     },
@@ -19,6 +19,14 @@ export class Favorites {
       followers: '14'
     }
     ]
+  }
+
+  delete(user) {
+    const filteredEntries = this.entries.filter(entry => entry.login !== user.login
+    )
+
+    this.entries = filteredEntries
+    this.update()
   }
 }
 
@@ -40,7 +48,12 @@ export class FavoritesView extends Favorites {
       row.querySelector('.user span').textContent = `@${user.login}`
       row.querySelector('.repositories').textContent = user.public_repos
       row.querySelector('.followers').textContent = user.followers
-      
+      row.querySelector('.remove').onclick = () => {
+        const isOK = confirm('Tem certeza que deseja deletar essa linha?')
+        if (isOK) {
+          this.delete(user)
+        }
+      }
 
       this.tbody.append(row)
       console.log(row)
@@ -71,7 +84,7 @@ export class FavoritesView extends Favorites {
   }
 
   removeAllTr() {
-   
+
 
     this.tbody.querySelectorAll('tr').forEach(
       tr => {
