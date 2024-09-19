@@ -12,7 +12,7 @@ app.get("/users", (req, res) => {
 app.post("/users", (req, res) => {
   const {name, email, password} = req.body
 
-  res.send(`Seu nome é: ${name}, seu email é ${email}, sua senha é ${password}`)
+  res.json({name, email, password})
 } )
 
 app.listen(port, () => { console.log(`Server is running in Port ${port}`) })
