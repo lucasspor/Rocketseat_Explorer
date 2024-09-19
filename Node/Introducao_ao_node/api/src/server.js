@@ -1,18 +1,18 @@
 const express = require("express")
 
 const app = express()
+app.use(express.json())
 const port = 3333
 
-app.get("/:id", (request, response) => {
-  const { id } = request.params
+app.get("/users", (req, res) => {
 
-  response.send(`Este é o Id request: ${id}`)
+  res.send("Server is running")
 })
 
-app.get("/:id/users", (request, response) => {
-  const {page, limit} = request.query
+app.post("/users", (req, res) => {
+  const {name, email, password} = req.body
 
-  response.send(`Esta é sua pagina: ${page} e este seu limite ${limit}`)
+  res.send(`Seu nome é: ${name}, seu email é ${email}, sua senha é ${password}`)
 } )
 
 app.listen(port, () => { console.log(`Server is running in Port ${port}`) })
