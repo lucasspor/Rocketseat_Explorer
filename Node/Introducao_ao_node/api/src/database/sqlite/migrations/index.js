@@ -6,7 +6,6 @@ async function migrationsRun(){
     createUsers,
   ].join('')
 
-
   sqliteConnections().then(db => db.exec(schemas)).catch(error => console.error(error))
 }
 

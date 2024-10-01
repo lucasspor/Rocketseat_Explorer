@@ -14,6 +14,8 @@ class UsersController {
       throw new AppError("Este email já esta em uso")
     }
 
+    await database.run("INSERT INTO users(name, email, password) VALUES (?,?,?)", [name, email, password])
+
     return res.status(201).json("message: This user will be create")
   }
 }
