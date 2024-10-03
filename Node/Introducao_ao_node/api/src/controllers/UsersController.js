@@ -42,7 +42,7 @@ class UsersController {
     user.name = name
     user.email = email
 
-    if(!password && old_password){
+    if(!password && !old_password){
       throw new AppError("Você precisa informar a senha antiga para definir a nova")
     }
 
@@ -61,9 +61,9 @@ class UsersController {
       name = ?,
       email = ?,
       password = ?,
-      updated_at = ?
+      updated_at = DATETIME('now')
       WHERE id = ?`,
-      [user.name, user.email,user.password, new Date(), user.id])
+      [user.name, user.email,user.password, user.id])
       return res.status(200).json("message: Everythings is new now")
   }
 
