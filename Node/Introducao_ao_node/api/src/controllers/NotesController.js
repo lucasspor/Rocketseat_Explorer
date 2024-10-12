@@ -46,6 +46,14 @@ class NotesController{
 
     return res.json({...note, tags, links})
   }
+
+  async delete(req, res){
+    const { id } = req.params
+
+    await knex("notes").where({id}).delete()
+
+    return res.json()
+  }
 }
 
 module.exports = NotesController
