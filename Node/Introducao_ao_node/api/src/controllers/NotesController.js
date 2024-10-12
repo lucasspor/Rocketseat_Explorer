@@ -56,16 +56,21 @@ class NotesController {
   }
 
   async index(req, res) {
-    const { user_id, title } = req.query
-
+    const { user_id, title, tags } = req.query
+    let notes
     const userExists = await knex("users").where({ id: user_id }).first();
-    
+
     if (!userExists) {
       throw new AppError("Usuário não encontrado!");
     }
 
-    const notes = await knex("notes").where({ user_id }).whereLike("title", `%${title}%`).orderBy("title")
-    return res.json(notes)
+    if (tags) {
+      const filterTags = tags.split(',').map(tag => tag.trim)
+      notes = await knex("tags").whereIn("name", filterTags)
+    } else {
+      notes = await knex("notes").where({ user_id }).whereLike("title", `%${title}%`).orderBy("title")
+      return res.json(notes)
+    }
   }
 }
 
