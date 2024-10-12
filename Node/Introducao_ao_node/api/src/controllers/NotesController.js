@@ -1,10 +1,10 @@
 const knex = require("../database/knex")
 const AppError = require("../utils/AppError")
 
-class NotesController{
-  async create(req, res){
+class NotesController {
+  async create(req, res) {
     const { title, description, tags, links } = req.body
-    const { user_id } = req.params 
+    const { user_id } = req.params
 
     const [note_id] = await knex("notes").insert({
       title,
@@ -12,7 +12,7 @@ class NotesController{
       user_id
     })
 
-    const linksInsert = links.map( link => {
+    const linksInsert = links.map(link => {
       return {
         note_id,
         url: link
@@ -20,8 +20,8 @@ class NotesController{
     })
 
     await knex("links").insert(linksInsert)
-    
-    const tagsInsert = tags.map( name => {
+
+    const tagsInsert = tags.map(name => {
       return {
         note_id,
         name,
@@ -34,25 +34,38 @@ class NotesController{
     res.json()
   }
 
-  async show( req, res){
+  async show(req, res) {
     const { id } = req.params
 
-    const note = await knex("notes").where({id}).first()
-    const tags = await knex("tags").where({note_id: id}).orderBy("name")
-    const links = await knex("links").where({note_id: id}).orderBy("created_at")
-    if(!note){
+    const note = await knex("notes").where({ id }).first()
+    const tags = await knex("tags").where({ note_id: id }).orderBy("name")
+    const links = await knex("links").where({ note_id: id }).orderBy("created_at")
+    if (!note) {
       throw new AppError("não existe")
     }
 
-    return res.json({...note, tags, links})
+    return res.json({ ...note, tags, links })
   }
 
-  async delete(req, res){
+  async delete(req, res) {
     const { id } = req.params
 
-    await knex("notes").where({id}).delete()
+    await knex("notes").where({ id }).delete()
 
     return res.json()
+  }
+
+  async index(req, res) {
+    const { user_id } = req.query
+
+    const userExists = await knex("users").where({ id: user_id }).first();
+
+    if (!userExists) {
+      throw new AppError("Usuário não encontrado!");
+    }
+
+    const notes = await knex("notes").where({ user_id }).orderBy("title")
+    return res.json(notes)
   }
 }
 
