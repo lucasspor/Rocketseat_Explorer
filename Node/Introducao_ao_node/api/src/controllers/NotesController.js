@@ -56,15 +56,15 @@ class NotesController {
   }
 
   async index(req, res) {
-    const { user_id } = req.query
+    const { user_id, title } = req.query
 
     const userExists = await knex("users").where({ id: user_id }).first();
-
+    
     if (!userExists) {
       throw new AppError("Usuário não encontrado!");
     }
 
-    const notes = await knex("notes").where({ user_id }).orderBy("title")
+    const notes = await knex("notes").where({ user_id }).whereLike("title", `%${title}%`).orderBy("title")
     return res.json(notes)
   }
 }
