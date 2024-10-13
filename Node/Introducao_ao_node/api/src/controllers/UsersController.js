@@ -18,7 +18,7 @@ class UsersController {
 
     await database.run("INSERT INTO users(name, email, password) VALUES (?,?,?)", [name, email, hashedPassword])
 
-    return res.status(201).json("message: This user will be create")
+    return res.status(201).json({message: "This user will be create"})
   }
 
   async update(req, res) {
@@ -47,10 +47,10 @@ class UsersController {
     }
 
     if(password && old_password){
-      const checkOldPassword = compare(old_password, user.password)
+      const checkOldPassword = await compare(old_password, user.password)
 
       if(checkOldPassword){
-        throw new Error("A senha antiga não confere")
+        throw new AppError("A senha antiga não confere")
       }
 
       user.password = await hash(password, 8)
@@ -64,7 +64,7 @@ class UsersController {
       updated_at = DATETIME('now')
       WHERE id = ?`,
       [user.name, user.email,user.password, user.id])
-      return res.status(200).json("message: Everythings is new now")
+      return res.status(200).json({message: "message: Everythings is new now"})
   }
 
 }

@@ -31,7 +31,7 @@ class NotesController {
 
     await knex("tags").insert(tagsInsert)
 
-    res.json()
+    res.json({message: "Nota criada com sucesso"})
   }
 
   async show(req, res) {
@@ -52,7 +52,7 @@ class NotesController {
 
     await knex("notes").where({ id }).delete()
 
-    return res.json()
+    return res.json({message: "Deletado com sucesso"})
   }
 
   async index(req, res) {
