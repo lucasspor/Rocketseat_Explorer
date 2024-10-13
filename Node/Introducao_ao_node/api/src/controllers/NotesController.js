@@ -63,10 +63,10 @@ class NotesController {
     if (!userExists) {
       throw new AppError("Usuário não encontrado!");
     }
-    
+
     if (tags) {
       const filterTags = tags.split(',').map(tag => tag.trim())
-     
+
       notes = await knex("tags").select([
         "notes.id",
         "notes.title",
@@ -75,11 +75,19 @@ class NotesController {
     } else {
       notes = await knex("notes").where({ user_id }).whereLike("title", `%${title}%`).orderBy("title")
     }
-    if(!notes.length){
+    if (!notes.length) {
       throw new AppError("Ixi não tem nada aqui!")
     }
+    const userTags = await knex("tags").where({ user_id })
+    const notesWithTags = notes.map(note => {
+      const noteTags = userTags.filter(tag => tag.note_id === note.id)
 
-    return res.json(notes)
+      return {
+        ...note, tags: noteTags
+      }
+    })
+
+    return res.json(notesWithTags)
   }
 }
 
