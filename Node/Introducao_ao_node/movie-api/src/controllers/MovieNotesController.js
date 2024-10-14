@@ -65,7 +65,7 @@ class MovieNotesController {
     return res.json({ message: "Deleted successfully" })
   }
 
-  async list(req, res) {
+  async search(req, res) {
     const { title, tags, user_id } = req.query
 
     const userExists = await knex("users").where({ id: user_id }).first();
