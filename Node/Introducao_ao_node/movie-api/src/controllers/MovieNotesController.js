@@ -44,6 +44,18 @@ class MovieNotesController {
 
     res.json({ message: "Note created successfully" })
   }
+
+  async show(req, res){
+    const { id } = req.params
+
+    const notes = await knex("movie_notes").where({ id }).first()
+    const tags = await knex("movie_tags").where({ note_id: id }).orderBy("name")
+    if (!notes) {
+      throw new AppError("Doesn't exists!!")
+    }
+
+    return res.json({ ...notes, tags })
+  }
 }
 
 module.exports = MovieNotesController
