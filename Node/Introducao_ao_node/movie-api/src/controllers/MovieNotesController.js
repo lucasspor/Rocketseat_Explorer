@@ -45,7 +45,7 @@ class MovieNotesController {
     res.json({ message: "Note created successfully" })
   }
 
-  async show(req, res){
+  async show(req, res) {
     const { id } = req.params
 
     const notes = await knex("movie_notes").where({ id }).first()
@@ -57,13 +57,54 @@ class MovieNotesController {
     return res.json({ ...notes, tags })
   }
 
-  async delete(req, res){
+  async delete(req, res) {
     const { id } = req.params
 
     await knex("movie_notes").where({ id }).delete()
 
-    return res.json({message: "Deleted successfully"})
+    return res.json({ message: "Deleted successfully" })
   }
+
+  async list(req, res) {
+    const { title, tags, user_id } = req.query
+
+    const userExists = await knex("users").where({ id: user_id }).first();
+
+    if (!userExists) {
+      throw new AppError("Este usuário não existe");
+    }
+
+    let movieNotes
+    if (tags) {
+      const filterTags = tags.split(',').map(tag => tag.trim())
+
+      movieNotes = await knex("movie_notes").select([
+        "movie_notes.id",
+        "movie_notes.title",
+        "movie_notes.user_id",
+      ]).where("movie_notes.user_id", user_id).whereLike("movie_notes.title", `%${title}%`).whereIn("movie_tags.name", filterTags).innerJoin("movie_tags", "movie_notes.id", "movie_tags.note_id").orderBy("movie_notes.title")
+    } else {
+      movieNotes = await knex("movie_notes").where({ user_id }).whereLike("title", `%${title}%`).orderBy("title")
+    }
+
+    if (!movieNotes.length) {
+      throw new AppError("Esta nota não existe")
+    }
+
+    const userTags = await knex("movie_tags").where({ user_id })
+
+    const notesWithTags = movieNotes.map(note => {
+      const noteTags = userTags.filter(tag => tag.note_id === note.id)
+
+      return {
+        ...note,
+        tags: noteTags
+      }
+    })
+
+    return res.json(notesWithTags)
+  }
+
 }
 
 module.exports = MovieNotesController
