@@ -1,9 +1,11 @@
+import { Container } from './styles.js'
+
 export default function Details() {
   return (
     <>
-      <div>
+      <Container>
         <h1>Hello World</h1>
-      </div>
+      </Container>
     </>
   );
 }
