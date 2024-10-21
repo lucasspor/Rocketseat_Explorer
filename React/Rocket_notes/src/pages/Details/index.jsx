@@ -3,12 +3,14 @@ import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
 import { Section } from '../../components/Section';
 import { Tag } from '../../components/Tag';
+import { ButtonText } from '../../components/ButtonText/index.jsx';
 
 export default function Details() {
   return (
     <>
       <Container>
         <Header />
+        <ButtonText title="Excluir a nota"/>
         <Section title="Links úteis">
           <Links>
             <li><a href="#" target="_blank">https://www.rocketseat.com.br/</a></li>

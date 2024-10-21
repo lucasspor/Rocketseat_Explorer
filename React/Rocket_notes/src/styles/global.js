@@ -24,6 +24,11 @@ export default createGlobalStyle`
     color: inherit;
   }
 
+  button{
+    border:none;
+    background: none;
+  }
+
   button, a{
     cursor: pointer;
     transition: filter 0.2s;
