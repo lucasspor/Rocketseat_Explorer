@@ -9,19 +9,18 @@ export default function Home() {
           RocketNotes
         </h1>
       </Brand>
-      <Header/>
+      <Header />
       <Menu>
 
       </Menu>
+      <NewNote>
+
+      </NewNote>
       <Search>
 
       </Search>
 
       <Content>
-
-        <NewNote>
-
-        </NewNote>
       </Content>
     </Container>
   )

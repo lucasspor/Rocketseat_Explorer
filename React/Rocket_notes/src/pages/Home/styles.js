@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-
-
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -19,21 +17,28 @@ export const Container = styled.div`
 `
 export const Brand = styled.div`
   grid-area: brand;
-  background: red;
+  background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_700};
+
+  >h1{
+    font-size: 24px;
+    font-weight: bold;
+    color: ${({ theme }) => theme.COLORS.ORANGE};
+  }
 `
 
 export const Menu = styled.ul`
   grid-area: menu;
-  background: green;`
+  background: ${({ theme }) => theme.COLORS.BACKGROUND_900};`
 
 export const Search = styled.div`
-  grid-area: search;
-  background: violet;`
+  grid-area: search;`
 
 export const Content = styled.div`
-  grid-area: content;
-  background: blue;`
+  grid-area: content;`
 
 export const NewNote = styled.button`
   grid-area: newnote;
-  background: yellow;`
+  background-color: ${({ theme }) => theme.COLORS.ORANGE};`
