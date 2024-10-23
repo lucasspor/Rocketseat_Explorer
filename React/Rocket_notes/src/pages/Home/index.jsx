@@ -14,18 +14,17 @@ export default function Home() {
       </Brand>
       <Header />
       <Menu>
-      <li><ButtonText title="Todos" isActivite/></li>
-      <li><ButtonText title="React"/></li>
-      <li><ButtonText title="Node"/></li>
+        <li><ButtonText title="Todos" isActivite /></li>
+        <li><ButtonText title="React" /></li>
+        <li><ButtonText title="Node" /></li>
       </Menu>
       <Search>
-      
-      </Search>
 
+      </Search>
       <Content>
       </Content>
       <NewNote>
-        <GoPlus/>Criar nota
+        <GoPlus />Criar nota
       </NewNote>
     </Container>
   )

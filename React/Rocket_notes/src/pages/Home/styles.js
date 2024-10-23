@@ -48,4 +48,17 @@ export const Content = styled.div`
 
 export const NewNote = styled.button`
   grid-area: newnote;
-  background-color: ${({ theme }) => theme.COLORS.ORANGE};`
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-size: 20px;
+
+  background-color: ${({ theme }) => theme.COLORS.ORANGE};
+  
+  > svg{
+    width: 22px;
+    height: 24px;
+  }  `
