@@ -13,6 +13,9 @@ export const Container = styled.div`
   > main {
     grid-area: content;
     overflow-y: scroll;
+    &::-webkit-scrollbar {
+    display: none;
+  }
     padding: 64px 0;
   }
 `

@@ -46,7 +46,13 @@ export const Search = styled.div`
   `
 
 export const Content = styled.div`
-  grid-area: content;`
+  grid-area: content;
+  padding: 0 64px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  `
 
 export const NewNote = styled.button`
   grid-area: newnote;
