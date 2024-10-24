@@ -1,8 +1,11 @@
-import { GoPlus } from "react-icons/go"
-
+import { FiPlus } from "react-icons/fi"
+//style.js componentes
 import { Container, Brand, Menu, Search, Content, NewNote } from "./styles.js"
+//Componentes
 import { Header } from '../../components/Header'
 import { ButtonText } from '../../components/ButtonText'
+import { Input } from "../../components/input"
+import { Section } from "../../components/Section"
 
 export default function Home() {
   return (
@@ -19,12 +22,15 @@ export default function Home() {
         <li><ButtonText title="Node" /></li>
       </Menu>
       <Search>
-
+        <Input placeholder="Pesquisar pelo titulo"/>
       </Search>
       <Content>
+        <Section title="Minhas notas">
+          
+        </Section>
       </Content>
       <NewNote>
-        <GoPlus />Criar nota
+        <FiPlus />Criar nota
       </NewNote>
     </Container>
   )
