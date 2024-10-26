@@ -1,6 +1,6 @@
 import { Input } from '../../components/input'
 import { FiMail, FiLock } from "react-icons/fi"
-import { Container, Form } from './styles'
+import { Container, Form, Background } from "./styles.js"
 import { Button } from '../../components/Button'
 import { ButtonText } from '../../components/ButtonText'
 
@@ -18,8 +18,9 @@ export function Signing() {
 
         <Button title="Entrar"/>
 
-        <ButtonText title="Criar conta" isActivite/>
+        <ButtonText title="Criar conta" isActive/>
       </Form>
+      <Background/>
     </Container>
   )
 
