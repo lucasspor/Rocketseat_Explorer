@@ -27,15 +27,16 @@ export const Form = styled.form`
   > h2 {
     font-size: 24px;
     color:${({theme}) => theme.COLORS.WHITE};
-    margin: 84px 0 24px;
+    margin: 48px 0;
   }
   
   > p {
     color: ${({theme}) => theme.COLORS.GRAY_100};
     font-size: 14px;
   }
-   
-  > button:nth-child(1n){
+
+
+  > button:nth-child(2n){
     margin-top: 64px;
   }
 

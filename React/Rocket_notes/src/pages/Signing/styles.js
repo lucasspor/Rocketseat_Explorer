@@ -34,8 +34,8 @@ export const Form = styled.form`
     color: ${({theme}) => theme.COLORS.GRAY_100};
     font-size: 14px;
   }
-   
-  > button:nth-child(1n){
+
+  > button:nth-child(2n){
     margin-top: 64px;
   }
 
