@@ -5,9 +5,10 @@ import { ThemeProvider } from 'styled-components'
 
 import Details from './pages/Details'
 import Home from './pages/Home'
+import { Signing } from './pages/SignIng'
+import { Signup } from './pages/Signup/'
 
 import theme from './styles/theme.js'
-import { Signing } from './pages/SignIng'
 
 
 createRoot(document.getElementById('root')).render(
@@ -16,7 +17,8 @@ createRoot(document.getElementById('root')).render(
       <GlobalStyles/>
       {/* <Details /> */}
       {/* <Home/> */}
-      <Signing/>
+      {/* <Signing/> */}
+      <Signup/>
     </ThemeProvider>
   </StrictMode>
 )

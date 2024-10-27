@@ -9,8 +9,10 @@ export const Container = styled.div`
   background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
   margin-bottom: 10px;
+
   
   > svg {
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
     margin:16px; 
   }
 
@@ -20,7 +22,7 @@ export const Container = styled.div`
 
     background: none;
     border: none;
-    padding: 12px;
+    padding: 12px 0 12px 12px;
 
     color: ${({ theme }) => theme.COLORS.WHITE};
 
