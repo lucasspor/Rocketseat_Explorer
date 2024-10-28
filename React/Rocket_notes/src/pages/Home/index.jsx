@@ -1,14 +1,14 @@
 import { FiPlus } from "react-icons/fi"
-//style.js componentes
+
 import { Container, Brand, Menu, Search, Content, NewNote } from "./styles.js"
-//Componentes
+
 import { Header } from '../../components/Header'
 import { ButtonText } from '../../components/ButtonText'
-import { Input } from "../../components/input"
+import { Input } from "../../components/Input"
 import { Section } from "../../components/Section"
 import { Note } from "../../components/Note"
 
-export default function Home() {
+export function Home() {
   return (
     <Container>
       <Brand>

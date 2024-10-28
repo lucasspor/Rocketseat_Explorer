@@ -22,6 +22,12 @@ export function New() {
             <Noteitem value="https://www.rocketseat.com.br/" />
             <Noteitem placeholder="Novo link" isNew/>
           </Section>
+          <Section title="Marcadores">
+            <div className="tags">
+            <Noteitem value="React" />
+            <Noteitem placeholder="Novo link" isNew/>
+            </div>
+          </Section>
           <Button title="Salvar"/>
         </Form>
       </main>

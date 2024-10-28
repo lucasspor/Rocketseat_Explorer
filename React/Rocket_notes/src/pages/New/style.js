@@ -9,12 +9,19 @@ export const Container = styled.header`
   grid-template-areas: 
   "header"
   "content";
-
+  
   > main {
+    grid-area: content;
     overflow-y: auto;
     &::-webkit-scrollbar {
     display: none;
   }
+  .tags{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
   }
 `
 
