@@ -1,10 +1,37 @@
-import { Container } from "./styles";
-import { Header } from "../../components/Header"
+import { Container, Form } from "./styles";
 
-export function Profile(){
-  return(
+import { Input } from '../../components/Input'
+import { Button } from '../../components/Button'
+import { FiArrowLeft, FiLock, FiMail, FiUser } from "react-icons/fi";
+
+export function Profile() {
+  return (
     <Container>
-      <Header/>
+      <header>
+        <a href="/">
+          <FiArrowLeft />
+        </a>
+      </header>
+      <Form>
+        <Input
+          placeholder="Nome"
+          type="text"
+          icon={FiUser} />
+        <Input
+          placeholder="Email"
+          type="text"
+          icon={FiMail} />
+        <Input
+          placeholder="Senha atual"
+          type="password"
+          icon={FiLock} />
+        <Input
+          placeholder="Nova senha"
+          type="password"
+          icon={FiLock} />
+
+        <Button title="Salvar" />
+      </Form>
     </Container>
   )
 }
