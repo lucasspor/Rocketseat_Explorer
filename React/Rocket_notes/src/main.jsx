@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import { Signing } from './pages/SignIng'
 import { Signup } from './pages/Signup'
 import { Profile } from './pages/Profile'
+import { New } from './pages/New'
 
 import theme from './styles/theme.js'
 
@@ -20,7 +21,8 @@ createRoot(document.getElementById('root')).render(
       {/* <Home/> */}
       {/* <Signing/> */}
       {/* <Signup/> */}
-      <Profile />
+      {/* <Profile /> */}
+      <New/>
     </ThemeProvider>
   </StrictMode>
 )
