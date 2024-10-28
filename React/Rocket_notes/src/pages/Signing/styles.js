@@ -38,7 +38,6 @@ export const Form = styled.form`
   > button:nth-child(2n){
     margin-top: 64px;
   }
-
 `
 
 export const Background = styled.div`
