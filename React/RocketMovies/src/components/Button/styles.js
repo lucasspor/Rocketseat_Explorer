@@ -9,4 +9,8 @@ export const Container = styled.button`
   border-radius: 10px;
   font-size: 1.6rem;
   color: ${({theme}) => theme.colors.background_400};
+
+  &:disabled{
+    opacity: .5;
+  }
 `

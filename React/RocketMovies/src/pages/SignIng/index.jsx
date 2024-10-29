@@ -1,6 +1,7 @@
-import { FiUser, FiMail, FiLock } from "react-icons/fi"
+import { FiUser, FiMail, FiLock, FiArrowLeft } from "react-icons/fi"
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
+import { ButtonText } from "../../components/ButtonText"
 import { Container, Form, Background } from "./styles"
 
 export function SignIng() {
@@ -19,6 +20,7 @@ export function SignIng() {
           </div>
           <Button title="Entrar" />
         </div>
+        <ButtonText to="/register" title="Voltar para o login" icon={FiArrowLeft} isActive/>
       </Form>
       <Background/>
     </Container>

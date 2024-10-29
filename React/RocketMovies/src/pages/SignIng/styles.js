@@ -41,6 +41,10 @@ export const Form = styled.form`
     display: grid;
     gap: .8rem;
   }
+
+  > a {
+    margin-top: 4.2rem;
+  }
 `
 export const Background = styled.div`
   flex: 1;
