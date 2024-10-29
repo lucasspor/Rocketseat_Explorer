@@ -4,6 +4,8 @@ import { Container, Form, Background } from "./styles.js"
 import { Button } from '../../components/Button'
 import { ButtonText } from '../../components/ButtonText'
 
+import { Link } from 'react-router-dom'
+
 export function Signup() {
   return (
     <Container>
@@ -20,7 +22,9 @@ export function Signup() {
 
         <Button title="Cadastrar"/>
 
-        <ButtonText title="Voltar para o login" isActive/>
+        <Link to="/">
+          Voltar para o login
+        </Link>
       </Form>
       
     </Container>

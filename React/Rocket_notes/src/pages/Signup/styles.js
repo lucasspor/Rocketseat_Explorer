@@ -36,7 +36,8 @@ export const Form = styled.form`
   }
 
 
-  > button:nth-child(2n){
+  > a{
+    color: ${({theme}) => theme.COLORS.ORANGE};
     margin-top: 64px;
   }
 

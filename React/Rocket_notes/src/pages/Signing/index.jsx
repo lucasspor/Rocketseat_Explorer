@@ -2,7 +2,8 @@ import { Input } from '../../components/input'
 import { FiMail, FiLock } from "react-icons/fi"
 import { Container, Form, Background } from "./styles.js"
 import { Button } from '../../components/Button'
-import { ButtonText } from '../../components/ButtonText'
+
+import { Link } from 'react-router-dom'
 
 export function Signing() {
   return (
@@ -18,7 +19,9 @@ export function Signing() {
 
         <Button title="Entrar"/>
 
-        <ButtonText title="Criar conta" isActive/>
+        <Link to="/register">
+          Criar Conta
+        </Link>
       </Form>
       <Background/>
     </Container>

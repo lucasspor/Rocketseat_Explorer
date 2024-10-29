@@ -4,7 +4,7 @@ import { Container, Brand, Menu, Search, Content, NewNote } from "./styles.js"
 
 import { Header } from '../../components/Header'
 import { ButtonText } from '../../components/ButtonText'
-import { Input } from "../../components/Input"
+import { Input } from "../../components/input"
 import { Section } from "../../components/Section"
 import { Note } from "../../components/Note"
 
@@ -18,7 +18,7 @@ export function Home() {
       </Brand>
       <Header />
       <Menu>
-        <li><ButtonText title="Todos" isActivite /></li>
+        <li><ButtonText title="Todos" $isactivite /></li>
         <li><ButtonText title="React" /></li>
         <li><ButtonText title="Node" /></li>
       </Menu>
@@ -41,7 +41,7 @@ export function Home() {
           }} />
         </Section>
       </Content>
-      <NewNote>
+      <NewNote to="/new">
         <FiPlus />Criar nota
       </NewNote>
     </Container>

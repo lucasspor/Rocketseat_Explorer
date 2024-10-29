@@ -35,7 +35,8 @@ export const Form = styled.form`
     font-size: 14px;
   }
 
-  > button:nth-child(2n){
+  > a{
+    color: ${({theme}) => theme.COLORS.ORANGE};
     margin-top: 64px;
   }
 `
