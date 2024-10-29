@@ -6,6 +6,7 @@ export default{
     background_300: "#FF859B",
 
     gray: "#948F99",
+    sowhite: "#CAC4CF", 
     white: "#FFFFFF",
     pink: "#FF859B"
   }

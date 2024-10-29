@@ -12,6 +12,7 @@ export default createGlobalStyle`
 
   body, input, button, textarea{
     font-size: 1.6rem;
+    font-family: "Roboto Slab", sans-serif;
   }
 
   body{
@@ -31,5 +32,9 @@ export default createGlobalStyle`
   a{
     text-decoration: none;
     color: ${({ theme }) => theme.colors.pink};
+  }
+
+  a:hover, button:hover{
+    opacity: 0.4;
   }
 `
