@@ -1,12 +1,18 @@
 import { Container } from "./styles"
+import { useRef} from "react"
 
 export function Input({icon: Icon, ...rest}) {
+  const inputRef = useRef(null);
+
+  function handleFocus() {
+    inputRef.current.focus();
+  }
   return (
-    <Container>
+    <Container onClick={handleFocus}>
       {Icon &&
         <Icon size={20}/>
       }
-      <input {...rest}/>
+      <input ref={inputRef} {...rest}/>
     </Container>
   )
 }

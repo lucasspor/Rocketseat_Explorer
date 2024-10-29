@@ -5,6 +5,7 @@ export default{
     background_400: "#312E38",
     background_300: "#FF859B",
 
+    gray: "#948F99",
     white: "#FFFFFF",
     pink: "#FF859B"
   }
