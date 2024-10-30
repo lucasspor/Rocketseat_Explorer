@@ -29,12 +29,13 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
-  a{
+  a, button{
     text-decoration: none;
     color: ${({ theme }) => theme.colors.pink};
+    transition: opacity .8s ease;
   }
 
   a:hover, button:hover{
-    opacity: 0.4;
+    opacity: 0.2;
   }
 `

@@ -3,7 +3,7 @@ export default{
     background_800: "#1C1B1E",
     background_600: "#262529",
     background_400: "#312E38",
-    background_300: "#FF859B",
+    background_300: "#272024",
 
     gray: "#948F99",
     sowhite: "#CAC4CF", 
