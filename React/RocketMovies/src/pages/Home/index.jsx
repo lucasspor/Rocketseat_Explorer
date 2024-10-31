@@ -13,7 +13,7 @@ export function Home() {
           <header>
             <h1>Meus filmes</h1>
 
-            <Button title="Adicionar filme" icon={FiPlus} />
+            <Button to="/new" title="Adicionar filme" icon={FiPlus} />
           </header>
           <Content>
             <Movie data={{ title: "Interestelar", rating: 3, tags: [{ id: 1, name: "Romance" }, { id: 1, name: "Romance" }] }}>

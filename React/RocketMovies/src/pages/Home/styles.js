@@ -12,7 +12,7 @@ export const Container = styled.div`
 `
 
 export const Form = styled.form`
-     max-width: 113.7;
+     max-width: 113.7rem;
      margin: 3.8rem auto;
      padding: 0 10rem;
 
@@ -25,7 +25,7 @@ export const Form = styled.form`
           font-weight: normal;
         }
 
-        button{
+        a{
           width: 20.7rem;
         }
       }
@@ -38,9 +38,6 @@ export const Content = styled.div`
   margin-top: 3.7rem;
   max-height: 45rem; 
   
-  overflow-y: auto; 
-
-  max-height: calc(100vh - 29.7rem);
   overflow-y: auto;
 
   &::-webkit-scrollbar {
