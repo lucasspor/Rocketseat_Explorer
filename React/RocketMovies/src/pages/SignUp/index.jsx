@@ -15,7 +15,7 @@ export function SignUp() {
         <div className="form-content">
           <div className="input-content">
             <Input icon={FiMail} placeholder="Email" />
-            <Input icon={FiLock} placeholder="Senha" />
+            <Input type="password" icon={FiLock} placeholder="Senha" />
           </div>
           <Button to="/home" title="Entrar" />
         </div>
