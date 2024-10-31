@@ -6,7 +6,7 @@ import { Container, Form, Author } from "./styles"
 import { FiArrowLeft } from "react-icons/fi"
 
 
-export function NewMovie() {
+export function Details() {
   return (
     <Container>
       <Header />

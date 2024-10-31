@@ -1,5 +1,4 @@
 import { Container } from "./styles"
-import { FiStar } from "react-icons/fi"
 
 import { Rating } from "../Rating"
 
