@@ -48,11 +48,12 @@ export const Profile = styled.div`
 
   }
 
-  > img{
+  > a {
+    img{
     width: 6.4rem;
     border-radius: 50%;
     border-radius: 1px solid ${({ theme }) => theme.colors.gray};
-  } 
-
+  }
+  }
 
 `

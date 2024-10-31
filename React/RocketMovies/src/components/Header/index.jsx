@@ -12,7 +12,7 @@ export function Header(){
         <h1>Lucas Silva Porto</h1>
         <Link>sair</Link>
         </div>
-        <img src="https://github.com/lucasspor.png" alt="Profile image"/>
+        <Link to="/profile"><img src="https://github.com/lucasspor.png" alt="Profile image"/></Link>
       </Profile>
     </Container>
   )
