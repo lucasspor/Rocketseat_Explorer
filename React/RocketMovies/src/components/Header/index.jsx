@@ -10,7 +10,7 @@ export function Header(){
       <Profile>
         <div>
         <h1>Lucas Silva Porto</h1>
-        <Link to="/">sair</Link>
+        <Link to="/home">sair</Link>
         </div>
         <Link to="/profile"><img src="https://github.com/lucasspor.png" alt="Profile image"/></Link>
       </Profile>

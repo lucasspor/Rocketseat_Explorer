@@ -12,7 +12,7 @@ export function Details() {
       <Header />
       <main>
        <Form>
-          <ButtonText to="/" title="Voltar" icon={FiArrowLeft} isActive />
+          <ButtonText to="/home" title="Voltar" icon={FiArrowLeft} isActive />
           <div className="title"><h1>Interestellar</h1><Rating grade={4} isBigSize /></div>
 
           <Author>

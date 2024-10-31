@@ -15,7 +15,7 @@ export function NewMovie() {
       <main>
         <Form>
           <header>
-            <ButtonText to="/" title="Voltar" icon={FiArrowLeft} isActive />
+            <ButtonText to="/home" title="Voltar" icon={FiArrowLeft} isActive />
             <h1>Novo filme</h1>
           </header>
           <Spacer>
