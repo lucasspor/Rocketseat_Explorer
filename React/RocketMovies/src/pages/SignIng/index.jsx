@@ -18,7 +18,7 @@ export function SignIng() {
             <Input icon={FiMail} placeholder="Email" />
             <Input type="password" icon={FiLock} placeholder="Senha" />
           </div>
-          <Button title="Entrar" />
+          <Button to="/home" title="Entrar" />
         </div>
         <ButtonText to="/" title="Voltar para o login" icon={FiArrowLeft} isActive/>
       </Form>

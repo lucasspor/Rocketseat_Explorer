@@ -17,7 +17,7 @@ export function SignUp() {
             <Input icon={FiMail} placeholder="Email" />
             <Input icon={FiLock} placeholder="Senha" />
           </div>
-          <Button title="Entrar" />
+          <Button to="/home" title="Entrar" />
         </div>
         <ButtonText to="/register" title="Criar conta" isActive/>
       </Form>

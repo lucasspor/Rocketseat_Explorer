@@ -11,9 +11,9 @@ export function Details() {
     <Container>
       <Header />
       <main>
-        <Form>
+       <Form>
           <ButtonText to="/" title="Voltar" icon={FiArrowLeft} isActive />
-          <div className="title"><h1>Novo filme</h1><Rating grade={4} isBigSize /></div>
+          <div className="title"><h1>Interestellar</h1><Rating grade={4} isBigSize /></div>
 
           <Author>
             <div><img src="https://www.github.com/lucasspor.png" alt="imagem do usuário" /><p>Por Lucas Silva Porto</p></div>

@@ -21,7 +21,7 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.colors.background_white};
   }
 
-  input,text-area,button{
+  input,textarea,button{
     background-color: transparent;
     border: none;
     outline: none;
@@ -32,10 +32,5 @@ export default createGlobalStyle`
   a, button{
     text-decoration: none;
     color: ${({ theme }) => theme.colors.pink};
-    transition: opacity .8s ease;
-  }
-
-  a:hover, button:hover{
-    opacity: 0.2;
   }
 `

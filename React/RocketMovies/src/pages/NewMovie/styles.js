@@ -20,6 +20,9 @@ export const Form = styled.form`
   padding: 0 4rem;
   margin: 4rem auto;
 
+  display: grid;
+  gap: 4rem;
+
   max-height: 45rem;
   overflow-y: auto;
 
@@ -34,59 +37,23 @@ export const Form = styled.form`
     border-radius: .8rem;
   }
 
-  > button:first-child{
-    margin-bottom: 2.4rem;
-  }
-  
-  
-  > .title {
-    display: flex;
-    align-items: center;
-    gap: 1.9rem;
-    
-    margin-bottom: 2.4rem;
+  > header {
     
     h1 {
       font-size: 3.6rem;
       font-weight: 700;
       
-      color: ${({ theme }) => theme.colors.white} ;
+      color: ${({ theme }) => theme.colors.white};
     }
+  
   }
-      
-  > .tags{
-    display: flex;
-    gap: .8rem;
-    margin-bottom: 4rem;
-  }
-
   > p{
       color: ${({ theme }) => theme.colors.white} ;
       font-size: 1.6rem;
     }
   `
 
-export const Author = styled`
+export const Spacer = styled.div`
   display: flex;
-  gap: .8rem;
-
-  > div {
-    display: flex;
-    gap: .8rem;
-
-    img, svg {
-      width: 16px;
-      height: 16px; 
-    }
-
-    p{
-      color: ${({ theme }) => theme.colors.gray} ;
-
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow-x: hidden;
-      max-width: 17rem;
-    }
-    
-  }
-` 
+  gap: 4rem;
+`

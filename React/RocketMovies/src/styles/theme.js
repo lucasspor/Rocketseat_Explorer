@@ -8,6 +8,7 @@ export default{
     gray: "#948F99",
     sowhite: "#CAC4CF", 
     white: "#FFFFFF",
-    pink: "#FF859B"
+    pink: "#FF859B",
+    dark: "#0D0C0F"
   }
 }

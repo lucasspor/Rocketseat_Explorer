@@ -9,11 +9,11 @@ export const Container = styled(Link)`
   gap: .8rem;
 
   padding: 1.6rem 1rem;
-  background-color: ${({ theme }) => theme.colors.pink};
+  background-color: ${({ theme, $isactive }) => $isactive ? `${theme.colors.dark}` : `${theme.colors.pink}`};
 
   border-radius: 10px;
   font-size: 1.6rem;
-  color: ${({theme}) => theme.colors.background_400};
+  color:  ${({ theme, $isactive }) => $isactive ? `${theme.colors.pink}` : `${theme.colors.background_800}`};
 
   &:disabled{
     opacity: .5;
