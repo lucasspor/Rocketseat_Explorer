@@ -23,3 +23,5 @@ function ensureAuthenticated(req, res, next) {
     throw new AppError("JWT Token inválido", 401)
   }
 }
+
+module.exports = ensureAuthenticated
