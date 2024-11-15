@@ -8,13 +8,15 @@ import { api } from "../../services/api"
 import { Container, Form, Background } from "./styles.js"
 import { Button } from '../../components/Button'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export function Signup() {
+
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const navigate = useNavigate()
 
   function handleSignup() {
     if (!name || !email || !password) {
@@ -28,6 +30,7 @@ export function Signup() {
     .catch(error => {
       if (error.response) {
         alert(error.response.data.message);
+        navigate("/")
       } else {
         alert("Não foi possível cadastrar");
       }
