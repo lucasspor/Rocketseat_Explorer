@@ -16,20 +16,22 @@ export function Signup() {
   const [password, setPassword] = useState("")
 
 
-  function handleSignup(){
-    if(!name || !email || !password){
+  function handleSignup() {
+    if (!name || !email || !password) {
       return alert("Preencha todos os dados")
     }
 
-    api.post("/users", {name, email, password}).then(() => {
-      alert("Usuário cadastrado com sucesso").catch( error => {
-        if(error.response){
-          alert(error.response.data.message)
-        }else{
-          alert("Não foi possível cadastrar")
-        }
-      })
-    })    
+   api.post("/users", { name, email, password })
+    .then(() => {
+      alert("Usuário cadastrado com sucesso");
+    })
+    .catch(error => {
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert("Não foi possível cadastrar");
+      }
+    })
   }
 
   return (
@@ -42,8 +44,8 @@ export function Signup() {
         <h2>Crie sua conta</h2>
 
         <Input icon={FiUser} type="text" placeholder="Nome" onChange={e => setName(e.target.value)} />
-        <Input icon={FiMail} type="text" placeholder="E-mail" onChange={e => setEmail(e.target.value)}/>
-        <Input icon={FiLock} type="password" placeholder="Senha" onChange={e => setPassword(e.target.value)}/>
+        <Input icon={FiMail} type="text" placeholder="E-mail" onChange={e => setEmail(e.target.value)} />
+        <Input icon={FiLock} type="password" placeholder="Senha" onChange={e => setPassword(e.target.value)} />
 
         <Button title="Cadastrar" onClick={handleSignup} />
 
