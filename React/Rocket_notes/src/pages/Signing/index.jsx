@@ -6,11 +6,18 @@ import { Button } from '../../components/Button'
 import { useAuth } from '../../hooks/auth'
 
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 export function Signing() {
 
-  const data = useAuth()
-  console.log("My context => ", data)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const { signIn } = useAuth()
+  
+  function handleSignIng(){
+    signIn({ email, password })
+  }
 
   return (
     <Container>
@@ -20,10 +27,10 @@ export function Signing() {
 
         <h2>Faça seu login</h2>
 
-        <Input icon={FiMail} placeholder="E-mail" />
-        <Input icon={FiLock} placeholder="Senha" />
+        <Input icon={FiMail} placeholder="E-mail" onChange={e => setEmail(e.target.value)}/>
+        <Input icon={FiLock} placeholder="Senha" type="password" onChange={e => setPassword(e.target.value)}/>
 
-        <Button title="Entrar" />
+        <Button title="Entrar" onClick={handleSignIng} />
 
         <Link to="/register">
           Criar Conta
