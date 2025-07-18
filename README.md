@@ -88,10 +88,10 @@ Focado no desenvolvimento de **habilidades técnicas e comportamentais**, o prog
 ## 👤 Autor
 
 <div align="left">
-  <img src="https://www.github.com/renyzeraa.png?size=150" width="120" style="border-radius: 50px;" alt="Foto de perfil de Lucas"/>
+  <img src="https://www.github.com/lucasspor.png?size=150" width="120" style="border-radius: 50px;" alt="Foto de perfil de Lucas"/>
 </div>
 
-### [**Lucas Silva Porto**](https://github.com/renyzeraa)
+### [**Lucas Silva Porto**](https://github.com/lucasspor)
 
 Desenvolvedor Front-end e Full Stack em formação. Apaixonado por tecnologia, design e soluções criativas. Explorando o universo da programação com foco em boas práticas, performance e experiência do usuário.
 
