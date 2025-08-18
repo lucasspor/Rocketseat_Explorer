@@ -1,12 +1,16 @@
-<h1 align="center">Form avaliação tutor</h1>
+<h1 align="center">Tutor Evaluation Form</h1>
 
-<p align="center">Neste desafio usando os conhecimentos aplicados no projeto 3 de forms desenvolvemos uma formulario de avaliação de tutor e de pedido para um tutor de ensino.</p>
+<p align="center">In this challenge, using the knowledge applied in Project 3 about forms, we developed a tutor evaluation and tutor request form.</p>
 
-<p align="center"><a href="https://lucasspor.github.io/Rocketseat_Explorer/HTML_CSS/Desafios/03_Forms" target="_blank"> Github Pages </a></p>
+<p align="center">
+  <a href="https://lucasspor.github.io/Rocketseat_Explorer/HTML_CSS/Desafios/03_Forms" target="_blank">View on GitHub Pages</a>
+</p>
 
-<img src="./.github/preview.png" alt=" preview do projeto"/>
+<p align="center">
+  <img src="./.github/preview.png" alt="Project Preview"/>
+</p>
 
-## 🚀 Tecnologia
+## Technology
 
 - HTML
 - CSS
