@@ -1,12 +1,16 @@
-<h1 align="center">Explore sem limites</h1>
+<h1 align="center">Explore Without Limits</h1>
 
-<p align="center">Projeto Feito com o intuito de treinar todos os conceitos mostrados durante as aulas tanto conceitos de responsividade quando conceitos de acessibilidade.</p>
+<p align="center">Project developed to practice all concepts taught during the lessons, including responsiveness and accessibility.</p>
 
-<p align="center"><a href="https://lucasspor.github.io/Rocketseat_Explorer/Intensvao/01_HTML_CSS" target="_blank" >Github pages</a></p>
+<p align="center">
+  <a href="https://lucasspor.github.io/Rocketseat_Explorer/Intensvao/01_HTML_CSS" target="_blank">View on GitHub Pages</a>
+</p>
 
-<img src="./.github/preview.png" alt="Site sobre o espaço e alguma estrelas"/>
+<p align="center">
+  <img src="./.github/preview.png" alt="Space website with stars"/>
+</p>
 
-## 🚀 Tecnologias
+## Technology
 
 - HTML
 - CSS
