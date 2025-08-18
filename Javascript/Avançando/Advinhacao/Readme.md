@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/lucasspor/Rocketseat_Explorer/assets/150375997/bb54ef52-8573-4a69-87e2-6ff5d9572de0" alt="Number Guessing Game Preview"/>
+  [Watch the video](https://github.com/lucasspor/Rocketseat_Explorer/assets/150375997/bb54ef52-8573-4a69-87e2-6ff5d9572de0)
 </p>
 
 ## Technology
