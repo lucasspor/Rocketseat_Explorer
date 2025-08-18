@@ -1,13 +1,17 @@
-<h1 align="center">Intensivão javascript</h1>
+<h1 align="center">JavaScript Intensive</h1>
 
-<p align="center">Exercicios intensivos para focar em conhecimentos basicos de javascript, passando por extrutura de condição e repetição e usando o alert(), para aparecimento das condições</p>
+<p align="center">Intensive exercises to focus on basic JavaScript knowledge, covering conditional and loop structures, using alert() to display conditions.</p>
 
-<p align="center"><a href="https://lucasspor.github.io/Rocketseat_Explorer/Intensvao/02_Javascript" target="_blank" >Github pages</a></p>
+<p align="center">
+  <a href="https://lucasspor.github.io/Rocketseat_Explorer/Intensvao/02_Javascript" target="_blank">View on GitHub Pages</a>
+</p>
 
-<img src="./.github/preview.png" alt="Exercicios javascript"/>
+<p align="center">
+  <img src="./.github/preview.png" alt="JavaScript exercises"/>
+</p>
 
-## 🚀 Tecnologias
+## Technology
 
-- Javascript
+- JavaScript
 - HTML
 - CSS
