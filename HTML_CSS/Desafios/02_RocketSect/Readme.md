@@ -1,12 +1,16 @@
-<h1 align="center">Desafio 02 - Rocketseat</h1>
+<h1 align="center">Challenge 02 - Rocketseat</h1>
 
-<p align="center">desafio proposto pela rocketseat para o uso que que foi ensinado durante as aulas, nesta aplicação usamos o conhecimento de flex para distribuir os itens na tela da mesma forma que o design no figma.</p>
+<p align="center">Challenge proposed by Rocketseat to practice the skills taught during the lessons. In this application, we used Flexbox to distribute items on the screen matching the Figma design.</p>
 
-<p align="center"> <a href="https://lucasspor.github.io/Rocketseat_Explorer/HTML_CSS/Desafios/02_RocketSect" target="_blank">Github Pages</a></p>
+<p align="center">
+  <a href="https://lucasspor.github.io/Rocketseat_Explorer/HTML_CSS/Desafios/02_RocketSect" target="_blank">View on GitHub Pages</a>
+</p>
 
-<p align="center"><img src="./.github/preview.png" alt="Rocket.sect"/></p>
+<p align="center">
+  <img src="./.github/preview.png" alt="Rocket.sect"/>
+</p>
 
-## 🚀 Tecnologias:
+## Technologies
 
 - HTML
 - CSS
