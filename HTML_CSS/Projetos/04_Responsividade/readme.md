@@ -1,12 +1,16 @@
-<h1>Introdução a responsividade</h1>
+<h1 align="center">Introduction to Responsiveness</h1>
 
-<p>Usamos conceitos de mobile firts e responsividade para desenvolver uma aplicação que se adapte para diferentes dispositivos sem que tenha uma quebra no site em dispositvos moveis</p>
+<p>We applied mobile-first and responsiveness concepts to develop an application that adapts to different devices without breaking the layout on mobile screens.</p>
 
-<img src="./.github/preview.png" alt="um computador e um celular contendo uma pagina web"/>
+<p align="center">
+  <img src="./.github/preview.png" alt="Computer and mobile displaying a web page"/>
+</p>
 
-<p align="center"><a href="https://lucasspor.github.io/Rocketseat_Explorer/HTML_CSS/Projetos/04_Responsividade" target="_blank">Github Pages</a></p>
+<p align="center">
+  <a href="https://lucasspor.github.io/Rocketseat_Explorer/HTML_CSS/Projetos/04_Responsividade" target="_blank">View on GitHub Pages</a>
+</p>
 
-## 🚀 Tecnologias
+## Technology
 
 - HTML
 - CSS
