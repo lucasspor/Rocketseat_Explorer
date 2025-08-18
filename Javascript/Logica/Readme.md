@@ -1,9 +1,9 @@
-<h1 align="center">Intensivão javascript</h1>
+<h1 align="center">JavaScript Intensive - Logic Exercises</h1>
 
-<p align="center">Somente exercicios e conceitos de logica da linguagem de programação usando o javascript para o entendimento sobre.</p>
+<p align="center">Exercises focused on programming logic using JavaScript to improve understanding of the language concepts.</p>
 
-## 🚀 Tecnologias
+## Technology
 
-- Javascript
+- JavaScript
 - HTML
 - CSS
