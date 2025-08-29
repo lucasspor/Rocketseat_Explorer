@@ -33,13 +33,20 @@ export const Profile = styled(Link)`
   flex-direction: column;
   line-height: 24px;
 
+
   span{
     font-size: 14px;
-    color: ${({theme})=> theme.COLORS.GRAY_100};
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
   }
   strong{
     font-size: 14px;
-    color: ${({theme})=> theme.COLORS.WHITE};
+    color: ${({ theme }) => theme.COLORS.WHITE};
+
+    max-width: 150px;      
+    white-space: nowrap;     
+    overflow: hidden;       
+    text-overflow: ellipsis; 
+    display: inline-block;
   }
  }
 `
