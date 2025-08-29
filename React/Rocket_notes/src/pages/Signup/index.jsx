@@ -9,6 +9,7 @@ import { Container, Form, Background } from "./styles.js"
 import { Button } from '../../components/Button'
 
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export function Signup() {
 
@@ -20,20 +21,20 @@ export function Signup() {
 
   function handleSignup() {
     if (!name || !email || !password) {
-      return alert("Preencha todos os dados")
+      return toast.error("Preencha todos os dados")
     }
 
    api.post("/users", { name, email, password })
     .then(() => {
-      alert("Usuário cadastrado com sucesso");
+      toast.success("Usuário cadastrado com sucesso");
       navigate("/")
     })
     .catch(error => {
       if (error.response) {
-        alert(error.response.data.message);
+        toast.error(error.response.data.message);
        
       } else {
-        alert("Não foi possível cadastrar");
+        toast.success("Não foi possível cadastrar");
       }
     })
   }
@@ -48,10 +49,10 @@ export function Signup() {
         <h2>Crie sua conta</h2>
 
         <Input icon={FiUser} type="text" placeholder="Nome" onChange={e => setName(e.target.value)} />
-        <Input icon={FiMail} type="text" placeholder="E-mail" onChange={e => setEmail(e.target.value)} />
+        <Input icon={FiMail} type="email" placeholder="E-mail" onChange={e => setEmail(e.target.value)} />
         <Input icon={FiLock} type="password" placeholder="Senha" onChange={e => setPassword(e.target.value)} />
 
-        <Button title="Cadastrar" onClick={handleSignup} />
+        <Button title="Cadastrar" onSubmit={handleSignup} />
 
         <Link to="/">
           Voltar para o login
