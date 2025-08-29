@@ -27,7 +27,7 @@ function AuthProvider({ children }) {
     }
   }
 
-  function signOut(){
+  function signOut() {
     localStorage.removeItem('@rocketnote:token')
     localStorage.removeItem('@rocketnote:user')
 
@@ -35,24 +35,42 @@ function AuthProvider({ children }) {
     setData({})
   }
 
-  useEffect(()=> {
+  async function updateProfile({ user }){
+    try {
+      await api.put("/users", user)
+      lolcalStorage.setItem("@rocketnotes:user", JSON.stringify(user))
+
+      setData({user, token: data.token})
+      alert("Perfil atualizado")
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message)
+      } else {
+        alert("Não foi possível atualizar o perfil.")
+      }
+    }
+  }
+
+  useEffect(() => {
     const token = localStorage.getItem('@rocketnote:token')
     const user = localStorage.getItem('@rocketnote:user')
 
-    if(token && user){
-       api.defaults.headers.authorization = `Bearer ${token}`
+    if (token && user) {
+      api.defaults.headers.authorization = `Bearer ${token}`
 
-       setData({
+      setData({
         token, user: JSON.parse(user)
-       })
+      })
     }
   }, [])
 
   return (
-    <AuthContext.Provider value={{ 
+    <AuthContext.Provider value={{
       signIn,
+      signOut,
+      updateProfile,
       user: data.user,
-      signOut }}>
+    }}>
       {children}
     </AuthContext.Provider>
   )

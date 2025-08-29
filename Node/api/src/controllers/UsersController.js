@@ -42,14 +42,14 @@ class UsersController {
     user.name = name ?? user.name
     user.email = email ?? user.email
 
-    if(!password && !old_password){
+    if(password && !old_password){
       throw new AppError("Você precisa informar a senha antiga para definir a nova")
     }
 
     if(password && old_password){
       const checkOldPassword = await compare(old_password, user.password)
 
-      if(checkOldPassword){
+      if(!checkOldPassword){
         throw new AppError("A senha antiga não confere")
       }
 
@@ -63,7 +63,7 @@ class UsersController {
       password = ?,
       updated_at = DATETIME('now')
       WHERE id = ?`,
-      [user.name, user.email,user.password, user.user_id])
+      [user.name, user.email,user.password, user.id])
       return res.status(200).json({message: "message: Everythings is new now"})
   }
 

@@ -26,11 +26,12 @@ export function Signup() {
    api.post("/users", { name, email, password })
     .then(() => {
       alert("Usuário cadastrado com sucesso");
+      navigate("/")
     })
     .catch(error => {
       if (error.response) {
         alert(error.response.data.message);
-        navigate("/")
+       
       } else {
         alert("Não foi possível cadastrar");
       }
