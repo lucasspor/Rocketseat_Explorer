@@ -14,13 +14,14 @@ export function Signing() {
 
   const { signIn } = useAuth()
   
-  function handleSignIng(){
+  function handleSignIng(event){
+    event.preventDefault()
     signIn({ email, password })
   }
 
   return (
     <Container>
-      <Form>
+      <Form onSubmit={handleSignIng}>
         <h1>Rocket Notes</h1>
         <p>Aplicação para salvar e gerenciar seus links úteis.</p>
 
@@ -29,7 +30,7 @@ export function Signing() {
         <Input icon={FiMail} placeholder="E-mail" onChange={e => setEmail(e.target.value)}/>
         <Input icon={FiLock} placeholder="Senha" type="password" onChange={e => setPassword(e.target.value)}/>
 
-        <Button title="Entrar" onClick={handleSignIng} />
+        <Button title="Entrar" type="submit" />
 
         <Link to="/register">
           Criar Conta

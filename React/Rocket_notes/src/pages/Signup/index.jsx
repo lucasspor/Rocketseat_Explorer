@@ -19,7 +19,8 @@ export function Signup() {
 
   const navigate = useNavigate()
 
-  function handleSignup() {
+  function handleSignup(event) {
+    event.preventDefault()
     if (!name || !email || !password) {
       return toast.error("Preencha todos os dados")
     }
@@ -42,7 +43,7 @@ export function Signup() {
   return (
     <Container>
       <Background />
-      <Form>
+      <Form onSubmit={handleSignup}>
         <h1>Rocket Notes</h1>
         <p>Aplicação para salvar e gerenciar seus links úteis.</p>
 
@@ -52,7 +53,7 @@ export function Signup() {
         <Input icon={FiMail} type="email" placeholder="E-mail" onChange={e => setEmail(e.target.value)} />
         <Input icon={FiLock} type="password" placeholder="Senha" onChange={e => setPassword(e.target.value)} />
 
-        <Button title="Cadastrar" onSubmit={handleSignup} />
+        <Button title="Cadastrar" type="submit" />
 
         <Link to="/">
           Voltar para o login
