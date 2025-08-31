@@ -7,8 +7,27 @@ import { ButtonText } from '../../components/ButtonText'
 import { Input } from "../../components/input"
 import { Section } from "../../components/Section"
 import { Note } from "../../components/Note"
+import { api } from "../../services/api.js"
+import { useEffect, useState } from "react"
 
 export function Home() {
+  const [tags, setTags] = useState([])
+
+
+
+useEffect(() => {
+  async function fetchTags() {
+    try {
+      const response = await api.get("/tags")
+      setTags(response.data)
+    } catch (error) {
+      console.error("Erro ao buscar tags:", error)
+    }
+  }
+  fetchTags()
+}, [])
+
+
   return (
     <Container>
       <Brand>
@@ -19,8 +38,11 @@ export function Home() {
       <Header />
       <Menu>
         <li><ButtonText title="Todos" $isactivite /></li>
-        <li><ButtonText title="React" /></li>
-        <li><ButtonText title="Node" /></li>
+        {tags && tags.map((tag) =>
+        (
+          <li key={tag.id}><ButtonText title={tag.name} $isactivite /></li>
+        ))
+        }
       </Menu>
       <Search>
         <Input placeholder="Pesquisar pelo titulo" />
@@ -30,7 +52,7 @@ export function Home() {
           <Note data={{
             title: 'React', tags: [
               { id: 1, name: 'react' },
-            
+
             ]
           }} />
           <Note data={{
