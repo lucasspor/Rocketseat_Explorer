@@ -12,20 +12,32 @@ import { useEffect, useState } from "react"
 
 export function Home() {
   const [tags, setTags] = useState([])
+  const [notes, setNotes] = useState([])
 
 
 
-useEffect(() => {
-  async function fetchTags() {
-    try {
-      const response = await api.get("/tags")
-      setTags(response.data)
-    } catch (error) {
-      console.error("Erro ao buscar tags:", error)
+  useEffect(() => {
+    async function fetchTags() {
+      try {
+        const response = await api.get("/tags")
+        setTags(response.data)
+      } catch (error) {
+        toast.error("Erro ao buscar tags:", error)
+      }
     }
-  }
-  fetchTags()
-}, [])
+
+    async function fetchNotes() {
+      try {
+        const response = await api.get("/notes")
+        setNotes(response.data)
+      } catch (error) {
+        toast.error("Erro ao buscar notes:", error)
+      }
+    }
+
+    fetchNotes()
+    fetchTags()
+  }, [])
 
 
   return (
@@ -37,7 +49,7 @@ useEffect(() => {
       </Brand>
       <Header />
       <Menu>
-        <li><ButtonText title="Todos" $isactivite /></li>
+        <li><ButtonText title="Todos" isActive /></li>
         {tags && tags.map((tag) =>
         (
           <li key={tag.id}><ButtonText title={tag.name} $isactivite /></li>
@@ -49,12 +61,16 @@ useEffect(() => {
       </Search>
       <Content>
         <Section title="Minhas notas">
-          <Note data={{
-            title: 'React', tags: [
-              { id: 1, name: 'react' },
-
-            ]
-          }} />
+          {
+            notes && notes.map((note) => (
+              <Note data={{
+                title: note.title, tags: [
+                  { id: '1', name: 'express' },
+                  { id: '2', name: 'nodejs' }
+                ]
+              }} />
+            ))
+          }
           <Note data={{
             title: 'Exemplo de Middleware', tags: [
               { id: '1', name: 'express' },
