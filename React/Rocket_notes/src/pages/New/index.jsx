@@ -7,13 +7,28 @@ import { Button } from "../../components/Button"
 import { Container, Form } from "./style"
 
 import { Link } from "react-router-dom"
+import { useState } from "react"
 
 export function New() {
+  const [links, setLinks] = useState([])
+  const [newLink, setNewLink] = useState("")
+
+  function handleAddLink() {
+    setLinks(prevState => [...prevState, newLink])
+    setNewLink("")
+  }
+
+  function handleRemoveLink() {
+    setLinks(prevState => [...prevState, newLink])
+    setNewLink("")
+  }
+
+
   return (
     <Container>
       <Header />
       <main>
-        <Form>
+        <Form >
           <header>
             <h1>Criar nota</h1>
             <Link to="/">voltar</Link>
@@ -21,16 +36,31 @@ export function New() {
           <Input placeholder="Título" />
           <Textarea placeholder="Observações" />
           <Section title="Links utéis">
-            <Noteitem value="https://www.rocketseat.com.br/" />
-            <Noteitem placeholder="Novo link" isNew/>
+            {
+              links.map((link, index) => (
+                <Noteitem
+                  key={String(index)}
+                  value={link}
+                  onClick={() => setLinks((prevLinks) => prevLinks.filter((_, i) => i !== index))}
+
+                />
+              ))
+            }
+            <Noteitem
+              isNew
+              placeholder="Novo link"
+              value={newLink}
+              onChange={e => setNewLink(e.target.value)}
+              onClick={handleAddLink}
+            />
           </Section>
           <Section title="Marcadores">
             <div className="tags">
-            <Noteitem value="React" />
-            <Noteitem placeholder="Novo link" isNew/>
+              <Noteitem value="React" />
+              <Noteitem placeholder="Novo link" isNew />
             </div>
           </Section>
-          <Button title="Salvar"/>
+          <Button title="Salvar" type="submit" />
         </Form>
       </main>
     </Container>
