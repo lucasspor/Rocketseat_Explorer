@@ -24,6 +24,10 @@ export function New() {
       toast.error("Preencha o link antes de adicionar");
       return;
     }
+    if (tags.includes(newLink)) {
+    toast.error("Esse link já foi adicionada");
+    return;
+  }
     setLinks(prevState => [...prevState, newLink])
     setNewLink("")
   }
@@ -34,9 +38,13 @@ export function New() {
 
   function handleAddTag() {
     if (!newTag) {
-      toast.error("Preencha o link antes de adicionar");
+      toast.error("Preencha o marcador antes de adicionar");
       return;
     }
+    if (tags.includes(newTag)) {
+    toast.error("Essa tag já foi adicionada");
+    return;
+  }
     setTags(prevState => [...prevState, newTag])
     setNewTag("")
   }
