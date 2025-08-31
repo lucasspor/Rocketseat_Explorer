@@ -6,28 +6,34 @@ import { Section } from "../../components/Section"
 import { Button } from "../../components/Button"
 import { Container, Form } from "./style"
 
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { api } from "../../services/api"
 
 export function New() {
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
+
   const [links, setLinks] = useState([])
   const [newLink, setNewLink] = useState("")
 
   const [tags, setTags] = useState([])
   const [newTag, setNewTag] = useState("")
 
+  const navigate = useNavigate()
+
   function handleAddLink() {
     if (!newLink) {
       toast.error("Preencha o link antes de adicionar");
       return;
     }
-    if (tags.includes(newLink)) {
-    toast.error("Esse link já foi adicionada");
-    return;
-  }
+    if (links.includes(newLink.toLowerCase())) {
+      toast.error("Esse link já foi adicionada");
+      return;
+    }
     setLinks(prevState => [...prevState, newLink])
     setNewLink("")
   }
@@ -41,10 +47,10 @@ export function New() {
       toast.error("Preencha o marcador antes de adicionar");
       return;
     }
-    if (tags.includes(newTag)) {
-    toast.error("Essa tag já foi adicionada");
-    return;
-  }
+    if (tags.includes(newTag.toLowerCase())) {
+      toast.error("Essa tag já foi adicionada");
+      return;
+    }
     setTags(prevState => [...prevState, newTag])
     setNewTag("")
   }
@@ -53,18 +59,69 @@ export function New() {
     setTags(prevTags => prevTags.filter((tag => tag !== deleted)))
   }
 
+  async function handleNewNote() {
+
+    if(newTag){
+      return toast.error("Você deixou uma tag no campo para adicionar, mas não clicou em adicionar")
+    }
+
+    if(newLink){
+      return toast.error("Você deixou um link no campo para adicionar, mas não clicou em adicionar")
+    }
+
+    if (!title) {
+      toast.error("Preencha o titulo antes de adicionar");
+      return;
+    }
+
+    if (!description) {
+      toast.error("Preencha a descrição antes de adicionar");
+      return;
+    }
+
+
+    if (links.length == 0) {
+      toast.error("Preencha o link antes de adicionar");
+      return;
+    }
+
+    if (tags.length == 0) {
+      toast.error("Preencha o marcador antes de adicionar");
+      return;
+    }
+
+    await api.post("/notes", {
+      title,
+      description,
+      tags,
+      links
+    })
+
+    toast.success("Nota criada com sucesso")
+    navigate("/")
+  }
+
 
   return (
     <Container>
       <Header />
       <main>
-        <Form onSubmit={(e) => e.preventDefault()}>
+        <Form onSubmit={(e) => {
+          e.preventDefault()
+          handleNewNote()
+        }}>
           <header>
             <h1>Criar nota</h1>
             <Link to="/">voltar</Link>
           </header>
-          <Input placeholder="Título" />
-          <Textarea placeholder="Observações" />
+          <Input
+            placeholder="Título"
+            onChange={e => setTitle(e.target.value)}
+          />
+          <Textarea
+            placeholder="Observações"
+            onChange={e => setDescription(e.target.value)}
+          />
           <Section title="Links utéis">
             {links.map((link, index) => {
               return (
@@ -82,11 +139,6 @@ export function New() {
               value={newLink}
               onChange={e => setNewLink(e.target.value)}
               onClick={handleAddLink}
-              onKeyDown={(e) => {
-                if (e.key == "Enter") {
-                  handleAddLink()
-                }
-              }}
             />
           </Section>
           <Section title="Marcadores">
@@ -97,7 +149,7 @@ export function New() {
                     <Noteitem
                       key={index}
                       value={tag}
-                       onClick={() => handleRemoveTag(tag)}
+                      onClick={() => handleRemoveTag(tag)}
                     />
                   )
                 })
@@ -108,11 +160,6 @@ export function New() {
                 value={newTag}
                 onChange={e => setNewTag(e.target.value)}
                 onClick={handleAddTag}
-                onKeyDown={(e) => {
-                  if (e.key == "Enter") {
-                    handleAddTag()
-                  }
-                }}
               />
             </div>
           </Section>
