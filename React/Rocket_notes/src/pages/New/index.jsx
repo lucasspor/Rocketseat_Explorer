@@ -9,18 +9,24 @@ import { Container, Form } from "./style"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export function New() {
   const [links, setLinks] = useState([])
   const [newLink, setNewLink] = useState("")
 
   function handleAddLink() {
+    if (!newLink) {
+      toast.error("Preencha o link antes de adicionar");
+      return;
+    }
     setLinks(prevState => [...prevState, newLink])
     setNewLink("")
   }
 
-  function handleRemoveLink() {
-    setLinks(prevState => [...prevState, newLink])
-    setNewLink("")
+  function handleRemoveLink(deleted) {
+    setLinks(prevLinks => prevLinks.filter((link => link !== deleted)))
   }
 
 
@@ -36,16 +42,16 @@ export function New() {
           <Input placeholder="Título" />
           <Textarea placeholder="Observações" />
           <Section title="Links utéis">
-            {
-              links.map((link, index) => (
+            {links.map((link, index) => {
+              return (
                 <Noteitem
                   key={String(index)}
                   value={link}
-                  onClick={() => setLinks((prevLinks) => prevLinks.filter((_, i) => i !== index))}
-
+                  onClick={() => handleRemoveLink(link)}
                 />
-              ))
-            }
+              );
+            })}
+
             <Noteitem
               isNew
               placeholder="Novo link"
@@ -57,7 +63,7 @@ export function New() {
           <Section title="Marcadores">
             <div className="tags">
               <Noteitem value="React" />
-              <Noteitem placeholder="Novo link" isNew />
+              <Noteitem placeholder="Nova Marcação" isNew />
             </div>
           </Section>
           <Button title="Salvar" type="submit" />
