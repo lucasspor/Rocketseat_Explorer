@@ -74,22 +74,6 @@ export function New() {
       return;
     }
 
-    if (!description) {
-      toast.error("Preencha a descrição antes de adicionar");
-      return;
-    }
-
-
-    if (links.length == 0) {
-      toast.error("Preencha o link antes de adicionar");
-      return;
-    }
-
-    if (tags.length == 0) {
-      toast.error("Preencha o marcador antes de adicionar");
-      return;
-    }
-
     await api.post("/notes", {
       title,
       description,
