@@ -7,6 +7,7 @@ import { ButtonText } from '../../components/ButtonText';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api.js';
+import { toast } from 'react-toastify';
 
 export function Details() {
   const params = useParams()
@@ -22,9 +23,19 @@ export function Details() {
     fetchNotes()
   }, [])
 
-  function handleBack(){
+  function handleBack() {
     navigate("/")
-  } 
+  }
+
+  async function handleDeleteNote() {
+    const confirm = window.confirm("Deseja deletar esta nota?")
+
+    if(confirm){
+      await api.delete(`notes/${params.id}`)
+      navigate("/")
+      toast.success("sua nota foi deletada")
+    }
+  }
 
   return (
     <>
@@ -32,7 +43,7 @@ export function Details() {
         <Header />
         {data && <main>
           <Content>
-            <ButtonText title="Excluir a nota" />
+            <ButtonText title="Excluir a nota" onClick={handleDeleteNote} />
             <h1>
               {data.title}
             </h1>
