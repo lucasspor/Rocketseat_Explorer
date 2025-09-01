@@ -30,9 +30,10 @@ export function New() {
       toast.error("Preencha o link antes de adicionar");
       return;
     }
-    if (links.includes(newLink.toLowerCase())) {
+      const existLink = links.some(link => link.toLowerCase() === newLink.toLowerCase())
+    if (existsLink) {
       toast.error("Esse link já foi adicionada");
-      return;
+      return
     }
     setLinks(prevState => [...prevState, newLink])
     setNewLink("")
@@ -47,9 +48,10 @@ export function New() {
       toast.error("Preencha o marcador antes de adicionar");
       return;
     }
-    if (tags.includes(newTag.toLowerCase())) {
-      toast.error("Essa tag já foi adicionada");
-      return;
+    const existTag = tags.some(tag => tag.toLowerCase() === newTag.toLowerCase())
+    if (existTag) {
+      toast.error("Essa tag já foi adicionada")
+      return
     }
     setTags(prevState => [...prevState, newTag])
     setNewTag("")
