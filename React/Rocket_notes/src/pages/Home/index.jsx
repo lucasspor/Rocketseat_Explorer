@@ -10,12 +10,14 @@ import { Note } from "../../components/Note"
 import { api } from "../../services/api.js"
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
+import { useNavigate } from "react-router-dom"
 
 export function Home() {
   const [tags, setTags] = useState([])
   const [tagSelected, setTagsSelected] = useState([])
   const [search, setSearch] = useState("")
   const [notes, setNotes] = useState([])
+  const navigate = useNavigate()
 
   function handleTagSelected(tagName) {
     if(tagName == "all"){
@@ -31,6 +33,10 @@ export function Home() {
       setTagsSelected(prevState => [...prevState, tagName])
     }
 
+  }
+
+  function handleDetails(id){
+      navigate(`/Details/${id}`)
   }
 
 
@@ -90,7 +96,8 @@ export function Home() {
             notes.map(note => (
               <Note
                 key={String(note.id)}
-                data={note} />
+                data={note} 
+                onClick={() => handleDetails(note.id)}/>
             ))
           }
 

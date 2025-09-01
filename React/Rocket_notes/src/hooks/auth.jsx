@@ -34,6 +34,7 @@ function AuthProvider({ children }) {
 
 
     setData({})
+    
   }
 
   async function updateProfile({ user, avatarFile }) {
