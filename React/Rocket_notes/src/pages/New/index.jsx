@@ -6,8 +6,10 @@ import { Section } from "../../components/Section"
 import { Button } from "../../components/Button"
 import { Container, Form } from "./style"
 
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useState } from "react"
+
+import { ButtonText } from "../../components/ButtonText"
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -25,13 +27,17 @@ export function New() {
 
   const navigate = useNavigate()
 
+  function handleBack() {
+    navigate(-1)
+  }
+
   function handleAddLink() {
     if (!newLink) {
       toast.error("Preencha o link antes de adicionar");
       return;
     }
       const existLink = links.some(link => link.toLowerCase() === newLink.toLowerCase())
-    if (existsLink) {
+    if (existLink) {
       toast.error("Esse link já foi adicionada");
       return
     }
@@ -98,7 +104,7 @@ export function New() {
         }}>
           <header>
             <h1>Criar nota</h1>
-            <Link to="/">voltar</Link>
+            <ButtonText title="Voltar" onClick={handleBack}/> 
           </header>
           <Input
             placeholder="Título"
