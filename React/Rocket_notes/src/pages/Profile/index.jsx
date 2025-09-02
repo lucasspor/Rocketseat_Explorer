@@ -31,15 +31,17 @@ export function Profile() {
 
   async function handleUpdate(event) {
     event.preventDefault()
-    const updatedUser = {
+    const updated = {
       name,
       email,
       old_password: passwordOld,
       password: passwordNew,
     }
 
+    const userUpdated = Object.assign( user, updated)
+
     try {
-      await updateProfile({ user: updatedUser, avatarFile })
+      await updateProfile({ user: userUpdated, avatarFile })
       navigate(-1)
     } catch (error) {
 
