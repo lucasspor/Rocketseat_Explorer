@@ -20,7 +20,7 @@ export function Home() {
           <header>
             <h1>Meus filmes</h1>
 
-            <Button to="/new" title="Adicionar filme" icon={FiPlus} />
+            <Button onClick={() => navigate("/new")} title="Adicionar filme" icon={FiPlus} />
           </header>
           <Content>
             <Movie onClick={handleList} rating={3.5}/>

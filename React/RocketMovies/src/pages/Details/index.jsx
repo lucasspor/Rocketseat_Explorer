@@ -5,14 +5,22 @@ import { Rating } from "../../components/Rating"
 import { Container, Form, Author, Spacer } from "./styles"
 import { FiArrowLeft, FiClock } from "react-icons/fi"
 
+import {useNavigate} from "react-router-dom"
+
 
 export function Details() {
+  const navigate = useNavigate()
+
+  function handleBack() {
+    navigate(-1)
+  }
+
   return (
     <Container>
       <Header />
       <main>
-        <Form>
-          <ButtonText to="/home" title="Voltar" icon={FiArrowLeft} isActive />
+        <Form onSubmit={e => event.preventDefault()}>
+          <ButtonText onClick={handleBack} title="Voltar" icon={FiArrowLeft} isActive />
           <Spacer>
             <section>
               <div className="title"><h1>Interestellar</h1><Rating grade={4} isBigSize /></div>

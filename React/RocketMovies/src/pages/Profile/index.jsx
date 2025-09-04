@@ -4,13 +4,19 @@ import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 import { ButtonText } from '../../components/ButtonText'
 import { FiArrowLeft, FiLock, FiMail, FiUser, FiCamera } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Profile() {
+  const navigate = useNavigate()
+
+  function handleBack(){
+    navigate(-1)
+  }
+
   return (
     <Container>
       <header>
-          <ButtonText to="/home" icon={FiArrowLeft} title="Voltar" isActive />
+          <ButtonText onClick={handleBack} icon={FiArrowLeft} title="Voltar" isActive />
       </header>
       <Form>
         <Avatar>
@@ -43,7 +49,7 @@ export function Profile() {
               icon={FiLock} />
           </div>
         </InputWrapper>
-        <Button title="Salvar" />
+        <Button title="Salvar" isBig />
       </Form>
     </Container>
   )

@@ -6,16 +6,23 @@ import { Section } from "../../components/Section"
 import { Container, Form, Spacer } from "./styles"
 import { FiArrowLeft } from "react-icons/fi"
 import { Input } from "../../components/Input"
+import { useNavigate } from "react-router-dom"
 
 
 export function NewMovie() {
+  const navigate = useNavigate()
+
+  function handleBack(){
+    navigate(-1)
+  }
+
   return (
     <Container>
       <Header />
       <main>
-        <Form>
+        <Form onSubmit={e => e.preventDefault()}>
           <header>
-            <ButtonText to="/home" title="Voltar" icon={FiArrowLeft} isActive />
+            <ButtonText onClick={handleBack} title="Voltar" icon={FiArrowLeft} isActive />
             <h1>Novo filme</h1>
           </header>
           <Spacer>
