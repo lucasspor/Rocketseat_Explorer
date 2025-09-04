@@ -33,4 +33,15 @@ export default createGlobalStyle`
     text-decoration: none;
     color: ${({ theme }) => theme.colors.pink};
   }
+    
+  &::-webkit-scrollbar {
+    width: .8rem;
+    max-height: 9.6rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: .8rem;
+    background-color: ${({ theme }) => theme.colors.pink};
+    border-radius: .8rem;
+  }
 `

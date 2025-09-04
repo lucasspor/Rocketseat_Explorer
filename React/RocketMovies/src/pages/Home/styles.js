@@ -13,8 +13,9 @@ export const Container = styled.div`
 
 export const Form = styled.form`
      max-width: 113.7rem;
+     width: 100%;
      margin: 3.8rem auto;
-     padding: 0 10rem;
+     padding: 0 10%;
 
       > header{
         display: flex;
@@ -23,10 +24,6 @@ export const Form = styled.form`
         h1  {
           color: ${({ theme }) => theme.colors.white};
           font-weight: normal;
-        }
-
-        a{
-          width: 20.7rem;
         }
       }
 `
@@ -42,11 +39,10 @@ export const Content = styled.div`
 
   &::-webkit-scrollbar {
     width: .8rem;
-    max-height: 9.6rem;
+    height: 9.6rem;
   }
 
   &::-webkit-scrollbar-thumb {
-    width: .8rem;
     background-color: ${({ theme }) => theme.colors.pink};
     border-radius: .8rem;
   }

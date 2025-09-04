@@ -7,10 +7,10 @@ import { NewMovie } from "../pages/NewMovie"
 export function AppRoutes(){
   return (
     <Routes>
-      <Route path="/home" element={<Home/>}/>
-      <Route path="/details" element={<Details/>}/>
+      <Route path="/" element={<Home/>}/>
       <Route path="/new" element={<NewMovie/>}/>
       <Route path="/profile" element={<Profile/>}/>
+      <Route path="/details/:id" element={<Details/>}/>
     </Routes>
   )
 }

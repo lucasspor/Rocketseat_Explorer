@@ -17,22 +17,8 @@ export const Container = styled.div`
 
 export const Form = styled.form`
   max-width: 123.5rem;
-  padding: 0 4rem;
+  padding: 0 10%;
   margin: 4rem auto;
-
-  overflow-y: scroll;
-  max-height: 50rem;
-
-  &::-webkit-scrollbar {
-    width: .8rem;
-    max-height: 9.6rem;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    width: .8rem;
-    background-color: ${({ theme }) => theme.colors.pink};
-    border-radius: .8rem;
-  }
 
   > p{
       color: ${({ theme }) => theme.colors.white} ;
@@ -40,23 +26,15 @@ export const Form = styled.form`
     }
   `
 export const Spacer = styled.div`
-  grid-area: content;
-  display: grid;
-  grid-template-columns: 16rem auto;
-  grid-template-rows: 1fr;
-  grid-template-areas: "content";
-  gap: 2.4rem;
-
-
   margin: 2.4rem 0 4rem;
 
   
   > section {
-     .title {
+    .title {
     display: flex;
     align-items: center;
     gap: 1.9rem;
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.5rem;
     
     h1 {
       font-size: 3.6rem;
@@ -66,11 +44,11 @@ export const Spacer = styled.div`
     }
   }
       
-   .tags{
+  .tags{
     display: flex;
     gap: .8rem;
   }
-  }
+}
 `
 
 
@@ -84,7 +62,7 @@ export const Author = styled.div`
     align-items: center;
     gap: .8rem;
 
-    margin-bottom:  4rem;
+    margin-bottom:  2rem;
 
     img, svg {
       width: 16px;

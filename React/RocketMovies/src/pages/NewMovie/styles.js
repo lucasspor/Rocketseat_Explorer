@@ -17,13 +17,12 @@ export const Container = styled.div`
 
 export const Form = styled.form`
   max-width: 123.5rem;
-  padding: 0 4rem;
+  padding: 0 10%;
   margin: 4rem auto;
 
   display: grid;
   gap: 4rem;
 
-  max-height: 45rem;
   overflow-y: auto;
 
   &::-webkit-scrollbar {

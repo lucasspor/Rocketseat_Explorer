@@ -25,8 +25,8 @@ export function NewMovie() {
           <Textarea placeholder="Observações" />
           <Section title="Marcadores" genre={[{id: 1, name: "comprar"}]}/>
           <Spacer>
-            <Button title="Excluir filme" isActive />
-            <Button title="Salvar alterações" />
+            <Button title="Excluir filme" isActive isBig/>
+            <Button title="Salvar alterações" isBig/>
           </Spacer>
         </Form>
       </main>

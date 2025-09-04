@@ -5,14 +5,14 @@ export const Container = styled.div`
   grid-area: header;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
   border: 1px solid ${({ theme }) => theme.colors.background_400};
 
-  padding: 3rem 10rem;
+  padding:  2rem 10%;
 
-  gap: 6.4rem;
+  gap: 3rem;
 
   > h1 {
     color: ${({ theme }) => theme.colors.pink};
@@ -34,10 +34,10 @@ export const Profile = styled.div`
     h1{
       font-size: 1.4rem;
       color: ${({ theme }) => theme.colors.white};
-      white-space: nowrap;
+       white-space: nowrap;
       text-overflow: ellipsis;
-      overflow-x: hidden;
-      max-width: 20rem;
+      overflow: hidden;
+      max-width: 7em;
     }
 
     a {
@@ -48,12 +48,11 @@ export const Profile = styled.div`
 
   }
 
-  > a {
-    img{
-    width: 6.4rem;
-    border-radius: 50%;
-    border-radius: 1px solid ${({ theme }) => theme.colors.gray};
-  }
-  }
+   > a {
+    img {
+      width: clamp(4rem, 6vw, 6.4rem);
+      border-radius: 50%;
+      border: 1px solid ${({ theme }) => theme.colors.gray}; 
+    }
 
 `
