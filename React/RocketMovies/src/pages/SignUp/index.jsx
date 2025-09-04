@@ -15,6 +15,10 @@ export function SignUp() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  function handleBack(){
+    navigate(-1)
+  }
+
   async function handleSignUp(event) {
     event.preventDefault()
     if (!name || !email || !password) {
@@ -50,7 +54,7 @@ export function SignUp() {
           </div>
           <Button type="submit" title="Entrar" />
         </div>
-        <ButtonText title="Voltar para o login" icon={FiArrowLeft} isActive />
+        <ButtonText title="Voltar para o login" icon={FiArrowLeft} isActive onClick={handleBack}/>
       </Form>
       <Background />
     </Container>
