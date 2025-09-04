@@ -5,13 +5,28 @@ import theme from './styles/theme.js'
 import GlobalStyle from './styles/global.js'
 
 import { Routes } from './routes'
-import { SignIng } from './pages/SignIng/index.jsx'
+import { AuthProvider } from './hook/auth.jsx'
+import { ToastContainer } from 'react-toastify'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <GlobalStyle/>
-        <Routes/>
+      <GlobalStyle />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </ThemeProvider>
+    <ToastContainer
+      position="bottom-right"
+      autoClose={4000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="dark"
+    />
   </StrictMode>,
 )
