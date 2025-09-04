@@ -1,6 +1,5 @@
 import { Header } from "../../components/Header"
 import { ButtonText } from "../../components/ButtonText"
-import { Banner } from "../../components/Banner"
 import { Tag } from "../../components/Tag"
 import { Rating } from "../../components/Rating"
 import { Container, Form, Author, Spacer } from "./styles"
@@ -15,7 +14,6 @@ export function Details() {
         <Form>
           <ButtonText to="/home" title="Voltar" icon={FiArrowLeft} isActive />
           <Spacer>
-            <Banner/>
             <section>
               <div className="title"><h1>Interestellar</h1><Rating grade={4} isBigSize /></div>
               <Author>

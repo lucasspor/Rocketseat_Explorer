@@ -2,8 +2,7 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 export const Container = styled(Link)`
-  display: grid;
-  grid-template-columns: 16rem auto;
+  display: flex;
   gap: 2rem;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.background_300};
