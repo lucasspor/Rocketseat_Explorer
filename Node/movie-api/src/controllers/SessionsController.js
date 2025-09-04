@@ -1,6 +1,6 @@
 const knex = require("../database/knex")
 const AppError = require("../utils/AppError")
-const { compare } = require("bcryptjs") //importamos o compare
+const { compare } = require("bcryptjs") 
 
 class SessionsController{
   async create(req, res){
