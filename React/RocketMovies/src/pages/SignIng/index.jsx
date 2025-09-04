@@ -3,24 +3,33 @@ import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
 import { ButtonText } from "../../components/ButtonText"
 import { Container, Form, Background } from "./styles"
+import { useState } from "react"
 
 export function SignIng() {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  async function handleSignUp(){
+
+
+  }
+
   return (
     <Container>
       <Form>
         <h1>RocketMovies</h1>
         <p>Aplicação para acompanhar tudo que assistir.</p>
 
-        <h2>Crie sua conta</h2>
+        <h2>Faça seu login</h2>
         <div className="form-content">
           <div className="input-content">
-            <Input icon={FiUser} placeholder="Nome" />
             <Input icon={FiMail} placeholder="Email" />
             <Input type="password" icon={FiLock} placeholder="Senha" />
           </div>
           <Button to="/home" title="Entrar" />
         </div>
-        <ButtonText to="/" title="Voltar para o login" icon={FiArrowLeft} isActive/>
+        <ButtonText to="/register" title="Criar conta" isActive/>
       </Form>
       <Background/>
     </Container>
