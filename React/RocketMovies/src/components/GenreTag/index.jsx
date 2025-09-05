@@ -1,13 +1,20 @@
+import { FiPlus, FiX } from "react-icons/fi";
 import { Container } from "./styles"
 
-export function GenreTag({ isNew = false, icon: Icon, name, ...rest }) {
+export function GenreTag({  isNew, value, onClick, ...rest }) {
   return (
-    <Container as={isNew ? "button" : "span"} $isnew={isNew} {...rest}>
-      <p>{name ? name : "Novo Marcador"}</p>
-      {isNew ?
-        <Icon /> :
-        <button><Icon /></button>
-      }
+    <Container $isnew={isNew}>
+      <input
+        type="text"
+        value={value}
+        readOnly={!isNew}
+        {...rest} />
+      <button
+        type='button'
+        onClick={onClick}
+        className={isNew ? 'button-add' : 'button-delete'}>
+        {isNew ? <FiPlus /> : <FiX />}
+      </button>
     </Container>
   );
 }
