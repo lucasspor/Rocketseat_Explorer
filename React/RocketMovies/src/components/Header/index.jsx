@@ -1,18 +1,31 @@
 import { Container, Profile } from "./styles"
 import { Input } from "../Input"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
-export function Header(){
+import { useAuth } from "../../hook/auth";
+import { api } from "../../services/api";
+import ProfileNoImage from '../../assets/profile-no-image.png'
+
+export function Header() {
+  const { signOut, user } = useAuth()
+  const navigate = useNavigate()
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : ProfileNoImage
+
+  function handleLogOut() {
+    signOut()
+    navigate("/")
+  }
+
   return (
     <Container >
-      <h1>RocketMovies</h1>
-      <Input placeholder="Pesquisar pelo título"/>
+      <Link to="/"><h1>RocketMovies</h1></Link>
+      <Input placeholder="Pesquisar pelo título" />
       <Profile>
         <div>
-        <h1>Lucas Silva Porto</h1>
-        <Link to="/">sair</Link>
+          <h1>Lucas Silva Porto</h1>
+          <button onClick={handleLogOut}>sair</button>
         </div>
-        <Link to="/profile"><img src="https://github.com/lucasspor.png" alt="Profile image"/></Link>
+        <Link to="/profile"><img src={avatarUrl} alt="Profile image" /></Link>
       </Profile>
     </Container>
   )

@@ -30,7 +30,7 @@ export function SignIn() {
             <Input icon={FiMail} placeholder="Email" onChange={e => setEmail(e.target.value)}/>
             <Input type="password" icon={FiLock} placeholder="Senha" onChange={e => setPassword(e.target.value)}/>
           </div>
-          <Button  title="Entrar" />
+          <Button  title="Entrar" type="submit"/>
         </div>
         <ButtonText to="/register" title="Criar conta" isActive />
       </Form>

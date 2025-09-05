@@ -14,9 +14,9 @@ export const Container = styled.div`
 
   gap: 3rem;
 
-  > h1 {
+  > a h1 {
     color: ${({ theme }) => theme.colors.pink};
-    font-size: 2.4rem;
+    font-size: 1.6rem;
   }
 `
 
@@ -37,10 +37,10 @@ export const Profile = styled.div`
        white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
-      max-width: 7em;
+      max-width: 6em;
     }
 
-    a {
+    button {
       white-space: nowrap;
       font-size: 1.4rem;
       color: ${({ theme }) => theme.colors.gray};
@@ -48,11 +48,11 @@ export const Profile = styled.div`
 
   }
 
-   > a {
-    img {
-      width: clamp(4rem, 6vw, 6.4rem);
-      border-radius: 50%;
-      border: 1px solid ${({ theme }) => theme.colors.gray}; 
-    }
+  > a {
+    img{
+    width: 6.4rem;
+    border-radius: 70%;
+    border-radius: 1px solid ${({ theme }) => theme.colors.gray};
+  }
 
 `
