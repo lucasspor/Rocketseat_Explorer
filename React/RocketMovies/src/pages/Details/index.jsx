@@ -4,46 +4,84 @@ import { Tag } from "../../components/Tag"
 import { Rating } from "../../components/Rating"
 import { Container, Form, Author, Spacer } from "./styles"
 import { FiArrowLeft, FiClock } from "react-icons/fi"
+import ProfileNoImage from '../../assets/profile-no-image.png'
+import { format } from "date-fns"
+import ptBR from "date-fns/locale/pt-BR"
 
-import {useNavigate} from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { api } from "../../services/api"
+import { useAuth } from "../../hook/auth"
+import { Button } from "../../components/Button"
+import { toast } from "react-toastify"
 
 
 export function Details() {
+  const params = useParams()
+  const [data, setData] = useState(null)
+  const { user } = useAuth()
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : ProfileNoImage
+
   const navigate = useNavigate()
 
   function handleBack() {
     navigate(-1)
   }
 
+  useEffect(() => {
+    async function fetchNotes() {
+      const response = await api.get(`/movie/${params.id}`)
+      setData(response.data)
+    }
+
+    fetchNotes()
+  }, [])
+
+  async function handleDeleteNote(e) {
+    e.preventDefault()
+    const confirm = window.confirm("Deseja deletar esta nota?")
+
+    if (confirm) {
+      await api.delete(`movie/${params.id}`)
+      navigate(-1)
+      toast.success("sua nota foi deletada")
+    }
+  }
+
   return (
     <Container>
       <Header />
       <main>
-        <Form onSubmit={e => event.preventDefault()}>
+        <Form onSubmit={handleDeleteNote}>
           <ButtonText onClick={handleBack} title="Voltar" icon={FiArrowLeft} isActive />
-          <Spacer>
-            <section>
-              <div className="title"><h1>Interestellar</h1><Rating grade={4} isBigSize /></div>
-              <Author>
-                <div><img src="https://www.github.com/lucasspor.png" alt="imagem do usuário" /><p>Por Lucas Silva Porto</p></div>
-                <div> <FiClock /><p>31/10/24 às 08:00</p></div>
-              </Author>
-              <div className="tags">
-                <Tag title="Ficção Cientifica" />
-                <Tag title="Drama" />
-                <Tag title="Familia" />
-              </div>
-            </section>
+          {data && (
+            <>
+              <Spacer>
+                <section>
+                  <div className="title"><h1>{data.title}</h1><Rating grade={data.rating} isBigSize /></div>
+                  <Author>
+                    <div><img src={avatarUrl} alt="imagem do usuário" /><p>{user.name}</p></div>
+                    <div> <FiClock /><p>{format(new Date(data.created_at), "dd/MM/yy 'às' HH:mm", { locale: ptBR })}</p></div>
+                  </Author>
+                  {
+                    data.tags && <div className="tags">
+                        
+                     {data.tags.map((tag) => {
+                        return (
+                          <Tag key={tag.id} title={tag.name} />
+                        )
+                      })
+                      }
+                    </div>
+                  }
+                </section>
 
-          </Spacer>
+              </Spacer>
+              <p>
+                {data.description}
 
-
-          <p>
-            Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se comunicar com ela. Pai e filha descobrem que o "fantasma" é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional, deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand. O cientista revela que um buraco de minhoca foi aberto perto de Saturno e que ele leva a planetas que podem oferecer condições de sobrevivência para a espécie humana. As "missões Lázaro" enviadas anos antes identificaram três planetas potencialmente habitáveis orbitando o buraco negro Gargântua: Miller, Edmunds e Mann – nomeados em homenagem aos astronautas que os pesquisaram. Brand recruta Cooper para pilotar a nave espacial Endurance e recuperar os dados dos astronautas; se um dos planetas se mostrar habitável, a humanidade irá seguir para ele na instalação da NASA, que é na realidade uma enorme estação espacial. A partida de Cooper devasta Murphy.
-            <br /><br />
-            Além de Cooper, a tripulação da Endurance é formada pela bióloga Amelia, filha de Brand; o cientista Romilly, o físico planetário Doyle, além dos robôs TARS e CASE. Eles entram no buraco de minhoca e se dirigem a Miller, porém descobrem que o planeta possui enorme dilatação gravitacional temporal por estar tão perto de Gargântua: cada hora na superfície equivale a sete anos na Terra. Eles entram em Miller e descobrem que é inóspito já que é coberto por um oceano raso e agitado por ondas enormes. Uma onda atinge a tripulação enquanto Amelia tenta recuperar os dados de Miller, matando Doyle e atrasando a partida. Ao voltarem para a Endurance, Cooper e Amelia descobrem que 23 anos se passaram.
-
-          </p>
+              </p></>)}
+          <Button title="Excluir filme" isActive isBig type="submit" />
         </Form>
       </main>
     </Container>

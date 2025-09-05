@@ -24,7 +24,7 @@ export function Header({search, setSearch}) {
         onChange={e => setSearch(e.target.value)} />
       <Profile>
         <div>
-          <h1>Lucas Silva Porto</h1>
+          <h1>{user.name}</h1>
           <button onClick={handleLogOut}>sair</button>
         </div>
         <Link to="/profile"><img src={avatarUrl} alt="Profile image" /></Link>

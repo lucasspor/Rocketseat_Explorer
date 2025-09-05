@@ -23,7 +23,9 @@ export const Form = styled.form`
   > p{
       color: ${({ theme }) => theme.colors.white} ;
       font-size: 1.6rem;
+      margin-bottom: 2.4rem;
     }
+      
   `
 export const Spacer = styled.div`
   margin: 2.4rem 0 4rem;

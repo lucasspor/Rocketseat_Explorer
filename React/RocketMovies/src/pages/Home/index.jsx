@@ -17,8 +17,7 @@ export function Home() {
     return navigate(`/details/${id}`)
   }
 
-  useEffect(() => {
-    async function fetchNotes() {
+      async function fetchNotes() {
       try {
         const response = await api.get("/movie?title=");
         setNotes(response.data);
@@ -27,12 +26,14 @@ export function Home() {
         setNotes([]);
       }
     }
+
+  useEffect(() => {
     fetchNotes();
   }, []);
 
   useEffect(() => {
     if (!search) {
-      setNotes([]);
+      fetchNotes();
       return
     };
 
