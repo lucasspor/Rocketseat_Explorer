@@ -50,6 +50,17 @@ export const Form = styled.form`
       color: ${({ theme }) => theme.colors.white} ;
       font-size: 1.6rem;
     }
+
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+  -moz-appearance: textfield;
+  }
+
   `
 
 export const Spacer = styled.div`
