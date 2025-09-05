@@ -19,16 +19,17 @@ class MovieNotesController {
       throw new AppError("Title, description, and rating are required.");
     }
 
-    const checkRating = rating < 1 || rating > 5
+    const ratingNumber = Number(rating)
 
-    if (checkRating) {
+    if (ratingNumber < 1 || ratingNumber> 5) {
       throw new AppError("The film rating must be from 1 to 5")
     }
+
 
     const [note_id] = await knex("movie_notes").insert({
       title,
       description,
-      rating,
+      rating: ratingNumber,
       user_id
     })
 
