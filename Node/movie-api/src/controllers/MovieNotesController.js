@@ -4,7 +4,7 @@ const knex = require("../database/knex")
 class MovieNotesController {
   async create(req, res) {
     const { title, description, tags, rating } = req.body
-    const { user_id } = req.params
+    const user_id = req.user.id
 
     if (!user_id) {
       throw new AppError("User ID is required");
@@ -15,14 +15,14 @@ class MovieNotesController {
       throw new AppError("This users doesn't exists")
     }
 
-    if (!title || !description || !rating) {
-      throw new AppError("Title, description, and rating are required.");
+    if (!title || rating === undefined) {
+      throw new AppError("Title and rating are required.");
     }
 
     const ratingNumber = Number(rating)
 
-    if (ratingNumber < 1 || ratingNumber> 5) {
-      throw new AppError("The film rating must be from 1 to 5")
+    if (ratingNumber < 0 || ratingNumber > 5) {
+      throw new AppError("The film rating must be from 0 to 5")
     }
 
 
@@ -33,15 +33,15 @@ class MovieNotesController {
       user_id
     })
 
-    const tagsInsert = tags.map(name => {
-      return {
+    if (tags && tags.length > 0) {
+      const tagsInsert = tags.map(name => ({
         note_id,
         name,
         user_id
-      }
-    })
+      }));
 
-    await knex("movie_tags").insert(tagsInsert);
+      await knex("movie_tags").insert(tagsInsert);
+    }
 
     res.json({ message: "Note created successfully" })
   }
@@ -67,7 +67,12 @@ class MovieNotesController {
   }
 
   async search(req, res) {
-    const { title, tags, user_id } = req.query
+    const { title, tags } = req.query
+    const user_id = req.user.id
+
+    if (!user_id) {
+      throw new AppError("User ID is required in query params")
+    }
 
     const userExists = await knex("users").where({ id: user_id }).first();
 
@@ -83,7 +88,7 @@ class MovieNotesController {
         "movie_notes.id",
         "movie_notes.title",
         "movie_notes.user_id",
-      ]).where("movie_notes.user_id", user_id).whereLike("movie_notes.title", `%${title}%`).whereIn("movie_tags.name", filterTags).innerJoin("movie_tags", "movie_notes.id", "movie_tags.note_id").orderBy("movie_notes.title")
+      ]).where("movie_notes.user_id", user_id).whereLike("movie_notes.title", `%${title}%`).whereIn("movie_tags.name", filterTags).innerJoin("movie_tags", "movie_notes.id", "movie_tags.note_id").orderBy("movie_notes.title").groupBy("movie_notes.id")
     } else {
       movieNotes = await knex("movie_notes").where({ user_id }).whereLike("title", `%${title}%`).orderBy("title")
     }
