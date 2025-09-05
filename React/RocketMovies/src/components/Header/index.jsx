@@ -6,7 +6,7 @@ import { useAuth } from "../../hook/auth";
 import { api } from "../../services/api";
 import ProfileNoImage from '../../assets/profile-no-image.png'
 
-export function Header() {
+export function Header({search, setSearch}) {
   const { signOut, user } = useAuth()
   const navigate = useNavigate()
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : ProfileNoImage
@@ -19,7 +19,9 @@ export function Header() {
   return (
     <Container >
       <Link to="/"><h1>RocketMovies</h1></Link>
-      <Input placeholder="Pesquisar pelo título" />
+      <Input placeholder="Pesquisar pelo título"
+        value={search}
+        onChange={e => setSearch(e.target.value)} />
       <Profile>
         <div>
           <h1>Lucas Silva Porto</h1>

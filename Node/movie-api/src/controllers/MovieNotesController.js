@@ -94,7 +94,7 @@ class MovieNotesController {
     }
 
     if (!movieNotes.length) {
-      throw new AppError("Esta nota não existe")
+      return res.json([]); 
     }
 
     const userTags = await knex("movie_tags").where({ user_id })

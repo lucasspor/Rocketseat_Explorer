@@ -4,17 +4,53 @@ import { Button } from "../../components/Button"
 import { FiPlus } from "react-icons/fi"
 import { Movie } from "../../components/Movie"
 import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { api } from "../../services/api"
 
 export function Home() {
-    const navigate = useNavigate()
-    
-    function handleList(){
-     return  navigate("/Details/3")
+  const [search, setSearch] = useState("");
+  const [notes, setNotes] = useState([])
+
+  const navigate = useNavigate()
+
+  function handleDetails(id) {
+    return navigate(`/details/${id}`)
+  }
+
+  useEffect(() => {
+    async function fetchNotes() {
+      try {
+        const response = await api.get("/movie?title=");
+        setNotes(response.data);
+      } catch (error) {
+        console.error("Erro ao carregar notas:", error.response?.data || error.message);
+        setNotes([]);
+      }
     }
+    fetchNotes();
+  }, []);
+
+  useEffect(() => {
+    if (!search) {
+      setNotes([]);
+      return
+    };
+
+    async function fetchSearchNotes() {
+      try {
+        const response = await api.get(`/movie?title=${encodeURIComponent(search)}`);
+        setNotes(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar filmes:", error.response?.data || error.message);
+      }
+    }
+    fetchSearchNotes();
+  }, [search]);
+
 
   return (
     <Container onSubmit={(e) => e.preventDefault()}>
-      <Header />
+      <Header search={search} setSearch={setSearch} />
       <main>
         <Form>
           <header>
@@ -23,7 +59,16 @@ export function Home() {
             <Button onClick={() => navigate("/new")} title="Adicionar filme" icon={FiPlus} />
           </header>
           <Content>
-            <Movie onClick={handleList} rating={3.5}/>
+            {
+              notes.map((note) => {
+                return (
+                  <Movie
+                    key={note.id}
+                    data={note}
+                    onClick={() => handleDetails(note.id)}
+                  />)
+              })
+            }
           </Content>
         </Form>
       </main>
