@@ -9,8 +9,8 @@ export const Container = styled.div`
 
   > div{
     display: flex;
+    width: 100%;
     gap: 2.4rem;
-    color: ${({theme}) => theme.colors.gray};
 
     border-radius: 10px;
     background-color: ${({theme}) => theme.colors.dark};
