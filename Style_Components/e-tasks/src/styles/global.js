@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { LAYOUT_BREAKPOIT} from "../styles/layoutBreakpoints"
+import { LAYOUT_BREAKPOINT} from "../styles/layoutBreakpoints"
 
 export default createGlobalStyle`
   * {
@@ -11,7 +11,7 @@ export default createGlobalStyle`
   :root {
     font-size: 16px;
 
-    @media (max-width: ${LAYOUT_BREAKPOIT.MD}){
+    @media (max-width: ${LAYOUT_BREAKPOINT.MD}){
       font-size: 12px;
     }
   }
@@ -43,7 +43,8 @@ export default createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-    width: 8px;
+    width: .5rem;
+    height: .5rem;
   }
   
   ::-webkit-scrollbar-track {

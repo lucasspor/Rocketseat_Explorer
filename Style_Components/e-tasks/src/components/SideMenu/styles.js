@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { LAYOUT_BREAKPOINT } from "../../styles/layoutBreakpoints";
 
 export const Container = styled.aside`
   grid-area: menu;
@@ -8,6 +9,10 @@ export const Container = styled.aside`
 
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${LAYOUT_BREAKPOINT.MD}) {
+    display: none;
+  }
 `;
 
 export const Header = styled.header`
